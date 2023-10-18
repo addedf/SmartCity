@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--    shape 形状-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    内容颜色 solid-->
+<solid android:color="#1777ff"></solid> <!--  #2376b7   -->
+<!--    边距粗细颜色 stroke-->
+    <stroke android:color="#8fdfff" android:width="3dp"></stroke> <!--  #c3d7df   -->
+<!--    圆角 corners -->
+    <corners android:radius="15dp"></corners>
+<!--    宽高 size -->
+<!--    <size android:width="20dp" android:height="10dp"></size>-->
+<!--    给形状设置默认边距 padding-->
+<!--    <padding android:bottom="10dp"></padding>-->
+<!--    斜率用于制作菱形形状 gradient-->
+<!--    <gradient android:centerX="100dp"></gradient>-->
+</shape>

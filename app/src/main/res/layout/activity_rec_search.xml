@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/acquiesce"
+    android:orientation="vertical"
+    tools:context=".ui.activity.RecSearchActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/rec_sear_tb"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple_500"
+        app:navigationIcon="@drawable/ic_back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="垃圾分类搜索"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/rec_sea_banner"/>
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rec_sea_search"
+        android:layout_marginTop="@dimen/five"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/search_bg"/>
+    <TextView
+        android:textColor="#999"
+        android:textSize="14sp"
+        android:paddingHorizontal="10dp"
+        android:text="热门搜索"
+        android:layout_margin="@dimen/five"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rec_sea_hot"
+        android:layout_marginTop="5dp"/>
+</LinearLayout>

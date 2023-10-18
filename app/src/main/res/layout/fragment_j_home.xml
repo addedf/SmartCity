@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/acquiesce"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.job.JHomeFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--        轮播图 -->
+            <androidx.viewpager2.widget.ViewPager2
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/job_banner"/>
+<!--            搜索 -->
+            <androidx.appcompat.widget.SearchView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:queryHint="请输入职位"
+                android:id="@+id/job_search_view"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/search_bg"/>
+<!--            热门职位 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="热门职位"
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:layout_marginTop="@dimen/five"
+                android:background="@color/white"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="@dimen/ten"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingHorizontal="16dp"
+                    android:id="@+id/job_hot_list"/>
+            </LinearLayout>
+<!--            职位列表 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="1200dp"
+                android:layout_marginTop="@dimen/five"
+                android:id="@+id/job_list"
+                android:background="@color/white"/>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="5dp">
+
+    <ImageView
+        android:id="@+id/item_stop_car_imgUrl"
+        android:layout_width="120dp"
+        android:layout_height="67dp" />
+    <!--    标题 -->
+    <TextView
+        android:id="@+id/item_stop_car_parkName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ten"
+        android:layout_toRightOf="@+id/item_stop_car_imgUrl"
+        android:maxLines="2"
+        android:textColor="@color/gray"
+        android:textSize="16sp" />
+<!--    地址-->
+    <TextView
+        android:id="@+id/item_stop_car_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ten"
+        android:layout_toRightOf="@+id/item_stop_car_imgUrl"
+        android:layout_below="@+id/item_stop_car_parkName"
+        android:maxLines="2"
+        android:textColor="@color/light_gray"
+        android:textSize="14sp" />
+    <LinearLayout
+        android:layout_toRightOf="@+id/item_stop_car_imgUrl"
+        android:layout_below="@+id/item_stop_car_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ten"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="空位:"
+            android:textColor="@color/light_gray"
+            android:textSize="14sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_stop_car_vacancy"
+            android:textColor="@color/light_gray"
+            android:textSize="14sp"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="价格:"
+            android:textColor="@color/light_gray"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_stop_car_rates"
+            android:textColor="@color/light_gray"
+            android:textSize="14sp"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="距离:"
+            android:textColor="@color/light_gray"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_stop_car_distance"
+            android:textColor="@color/light_gray"
+            android:textSize="14sp"
+            android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+</RelativeLayout>

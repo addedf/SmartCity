@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/acquiesce"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.HomeFragment">
+    <!--    搜索框 -->
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/purple_500">
+        <!--        搜索组件 -->
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/search_bg" />
+    </androidx.appcompat.widget.Toolbar>
+    <!--    滑动组件 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <!--        里面只能用一个容器包裹-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--            轮播图 -->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/home_banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+            <!--            各项服务 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/home_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@color/white"
+                android:paddingHorizontal="5dp"
+                android:paddingBottom="10dp" />
+            <!--            热门主题-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="热门主题"
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:layout_marginLeft="16dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/home_hot"/>
+            <!--            新闻分类 -->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/home_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:tabMode="scrollable" />
+            <!--            android:descendantFocusability="blocksDescendants"自动获取子元素的焦点-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants">
+                <!--                android:overScrollMode="never"不显示滚动条 -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/home_news_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:overScrollMode="never" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

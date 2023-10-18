@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="找工作"
+        android:icon="@drawable/ic_job_search"
+        android:id="@+id/nav_JobSearch"/>
+    <item android:title="投递记录"
+        android:icon="@drawable/ic_deliver"
+        android:id="@+id/nav_Deliver"/>
+    <item android:title="个人简历"
+        android:icon="@drawable/ic_curriculum_vitae"
+        android:id="@+id/CurriculumVitae"/>
+
+</menu>

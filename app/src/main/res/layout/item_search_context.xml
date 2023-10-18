@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_marginTop="2dp"
+    android:layout_height="80dp">
+<!--    快递状态 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="快递发出"
+        android:id="@+id/item_search_stateName"
+        android:textSize="18sp"
+        android:textColor="@color/aurantium"/>
+<!--    时间 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_search_eventAt"
+        android:layout_toRightOf="@+id/item_search_stateName"
+        android:layout_marginStart="30dp"
+        android:text="2022-03-02"
+        android:textColor="@color/aurantium"/>
+<!--    地址 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_search_addressAt"
+        android:layout_below="@+id/item_search_stateName"
+        android:layout_marginTop="5dp"
+        android:text="快递再案例"/>
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_down_arrow"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"/>
+</RelativeLayout>

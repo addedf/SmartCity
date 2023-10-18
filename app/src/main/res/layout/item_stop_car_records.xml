@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:background="@color/white"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="5dp">
+
+    <TextView
+        android:id="@+id/item_stop_car_records_parkName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:paddingHorizontal="@dimen/five"
+        android:text="停车场"
+        android:textColor="@color/black"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/item_stop_car_records_entryTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_stop_car_records_parkName"
+        android:text="入场时间："
+        android:textSize="16dp"
+        android:layout_marginTop="@dimen/five"
+        android:layout_marginStart="@dimen/ten"/>
+    <TextView
+        android:id="@+id/item_stop_car_records_outTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_stop_car_records_entryTime"
+        android:text="出场时间："
+        android:textSize="16dp"
+        android:layout_marginTop="@dimen/five"
+        android:layout_marginStart="@dimen/ten"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_stop_car_records_plateNumber"
+        android:text="车牌号："
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/item_stop_car_records_parkName"
+        android:layout_marginTop="@dimen/five"
+        android:layout_marginStart="@dimen/ten"
+        android:layout_marginLeft="@dimen/ten"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_stop_car_records_monetary"
+        android:text="金额"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/item_stop_car_records_plateNumber"
+        android:layout_marginTop="@dimen/five"
+        android:layout_marginStart="@dimen/ten"
+        android:layout_marginLeft="@dimen/ten"/>
+</RelativeLayout>

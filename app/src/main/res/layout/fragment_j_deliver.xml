@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/acquiesce"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.job.JDeliverFragment">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="api加载超时，一分钟才有数据后端问题"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="2000dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="@dimen/ten"
+            android:id="@+id/kde_list"/>
+    </RelativeLayout>
+</LinearLayout>

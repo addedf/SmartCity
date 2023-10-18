@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="志愿新闻"
+        android:icon="@drawable/ic_news"
+        android:id="@+id/von_news_volunteer"/>
+    <item android:title="志愿服务"
+        android:icon="@drawable/ic_volunteer"
+        android:id="@+id/von_volunteer"/>
+    <item android:title="我的"
+        android:icon="@drawable/ic_me_volunteer"
+        android:id="@+id/von_me_volunteer"/>
+</menu>
