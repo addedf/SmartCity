@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.GovernmentActivity"></activity>
+        <activity android:name=".ui.activity.GovernmentInfoActivity"></activity>
+        <activity android:name=".ui.activity.GovernmentActivity" />
         <activity android:name=".ui.activity.RecNewsActivity" />
         <activity android:name=".ui.activity.RecActivity" />
         <activity android:name=".ui.activity.RecClazzActivity" />
