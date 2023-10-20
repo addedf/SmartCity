@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/acquiesce"
+    android:orientation="vertical"
+    tools:context=".ui.activity.SubmitLaimActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/sub_tb"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple_500"
+        app:navigationIcon="@drawable/ic_back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="新建诉求"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="诉求标题:"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/sub_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_weight="1"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="诉求内容:"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/sub_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_weight="1"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="诉求单位:"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/sub_undertaker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_weight="1"
+            android:textColor="@color/gray"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_btn"
+        android:text="提交诉求"
+        android:textSize="18sp"
+        android:id="@+id/sub_btn"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="60dp"/>
+
+</LinearLayout>

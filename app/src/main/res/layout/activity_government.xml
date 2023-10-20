@@ -55,13 +55,13 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:descendantFocusability="blocksDescendants"
-                android:padding="16dp">
+                android:descendantFocusability="blocksDescendants">
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/gov_list"
-                    android:layout_marginTop="@dimen/five" />
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="@dimen/five" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
