@@ -18,7 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.GoverTypeListActivity"></activity>
+        <activity android:name=".ui.activity.PetHospitalnfoActivity"></activity>
+        <activity android:name=".ui.activity.PetInquiryListActivity" />
+        <activity android:name=".ui.activity.PetMeInquiryActivity" />
+        <activity android:name=".ui.activity.PetHospitalActivity" />
+        <activity android:name=".ui.activity.LawyerActivity" />
+        <activity android:name=".ui.activity.GoverTypeListActivity" />
         <activity android:name=".ui.activity.SubmitLaimActivity" />
         <activity android:name=".ui.activity.GovernmentInfoActivity" />
         <activity android:name=".ui.activity.GovernmentActivity" />
