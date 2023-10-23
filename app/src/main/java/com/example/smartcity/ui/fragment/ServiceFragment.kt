@@ -32,15 +32,24 @@ class ServiceFragment : Fragment() {
     private fun loadService() {
         tool.apply {
             send("/prod-api/api/service/list", "GET", null, false) {
-//                添加服务
-//                val list = mutableListOf<ServiceBean>()
-//                list.add()
                 val bean = Gson().fromJson(it, ServiceBean::class.java)
-                val adapter = GenericAdapter(bean.rows.size,
+//                加载一段本地数据 使用和上面解析json一样的实体类
+                val localData = ServiceBean.Data(
+                    imgUrl = "/prod-api/profile/upload/image/2023/02/13/dbc84fa3-05ef-476a-8268-422b09eb4866.png",
+                    serviceName = "法律咨询",
+                    sort = 1,
+                    id = 0
+                )
+//                数据类 copy方法
+                val modifiedServiceBean = bean.copy(
+//                    +号等同于plus 方法集合相加
+                    rows = bean.rows + localData
+                )
+                val adapter = GenericAdapter(modifiedServiceBean.rows.size,
                     { ItemServiceBinding.inflate(layoutInflater) }) { binding, position ->
 //                    点击跳转服务界面 GarbageSortingActivity 内存泄露文件 垃圾分类重写
                     binding.root.setOnClickListener {
-                        when (bean.rows[position].serviceName) {
+                        when (modifiedServiceBean.rows[position].serviceName) {
                             "宠物医院" -> jump(PetHospitalActivity::class.java)
                             "法律服务" -> jump(LawyerActivity::class.java)
                             "政府服务热线" -> jump(GovernmentActivity::class.java)
@@ -59,8 +68,8 @@ class ServiceFragment : Fragment() {
                             else -> Toast.makeText(context, "待开发", Toast.LENGTH_SHORT).show()
                         }
                     }
-                    binding.itemServiceName.text = bean.rows[position].serviceName
-                    Glide.with(context).load(getUrl(bean.rows[position].imgUrl)).centerCrop()
+                    binding.itemServiceName.text = modifiedServiceBean.rows[position].serviceName
+                    Glide.with(context).load(getUrl(modifiedServiceBean.rows[position].imgUrl)).centerCrop()
                         .into(binding.itemServiceIcon)
                 }
                 vb.serviceList.adapter = adapter
