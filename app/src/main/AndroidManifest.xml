@@ -18,7 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.PetHospitalnfoActivity"></activity>
+        <activity android:name=".ui.activity.CallDoctorActivity"></activity>
+        <activity android:name=".ui.activity.PetInquiryInfoActivity" />
+        <activity android:name=".ui.activity.QuestionCloselyActivity" />
+        <activity android:name=".ui.activity.PetHospitalnfoActivity" />
         <activity android:name=".ui.activity.PetInquiryListActivity" />
         <activity android:name=".ui.activity.PetMeInquiryActivity" />
         <activity android:name=".ui.activity.PetHospitalActivity" />

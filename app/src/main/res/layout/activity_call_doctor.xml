@@ -6,20 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/acquiesce"
-    tools:context=".ui.activity.PetInquiryListActivity">
+    tools:context=".ui.activity.CallDoctorActivity">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/pet_inq_tb"
         app:navigationIcon="@drawable/ic_back"
+        android:id="@+id/call_tb"
         android:background="@color/purple_500">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="问诊案例"
+            android:text="找医生"
             android:textSize="18sp"
-            android:layout_gravity="center"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
     <ScrollView
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/pet_inq_list"/>
+                    android:id="@+id/call_list"/>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

@@ -5,38 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.activity.PetMeInquiryActivity">
+    android:background="@color/acquiesce"
+    tools:context=".ui.activity.QuestionCloselyActivity">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/pet_me_tb"
         app:navigationIcon="@drawable/ic_back"
+        android:id="@+id/que_clo_tb"
         android:background="@color/purple_500">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="问诊记录"
+            android:text="追问病例"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_gravity="center"/>
     </androidx.appcompat.widget.Toolbar>
-    <ScrollView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:descendantFocusability="blocksDescendants"
-                android:padding="16dp">
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/pet_me_list"/>
-            </RelativeLayout>
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="wrap_content"
+        android:text="详细描述您宠物的病情"
+        android:textSize="14sp"
+        android:padding="16sp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:background="@color/white"
+        android:hint="请在这里输入"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/que_clo_btn"
+        android:background="@drawable/search_btn"
+        android:text="提交"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="300dp"/>
 </LinearLayout>

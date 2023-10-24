@@ -13,7 +13,9 @@ import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.smartcity.R
+import com.example.smartcity.bean.UploadBean
 import com.example.smartcity.databinding.ActivityPetHospitalnfoBinding
+import com.example.smartcity.g
 import com.example.smartcity.tool
 import com.example.smartcity.viewBinding
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -27,7 +29,8 @@ class PetHospitalnfoActivity : AppCompatActivity() {
     val TAG = "PetHospitalnfoActivity"
     private val fromAlbum = 2
 //    延迟定义全局变量
-    private var selectedBitmap: Bitmap? = null
+//    private var selectedBitmap: Bitmap? = null
+    private lateinit var imgUrl :String
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,11 +72,12 @@ class PetHospitalnfoActivity : AppCompatActivity() {
 //                base64String
 //            } ?: ""
 //            提交Bitmap
+//            TODO("/prod-api/common/upload先文件上传再拿到文件路径才上传")
             val data = """
                 {
                 "doctorId": $id,
                 "question": "${vb.petInfoInput.text}",
-                "imageUrls":"$selectedBitmap"
+                "imageUrls":"$imgUrl"
                 }
             """.trimIndent()
             val req = data.toRequestBody("application/json".toMediaTypeOrNull())
@@ -104,9 +108,10 @@ class PetHospitalnfoActivity : AppCompatActivity() {
             fromAlbum -> {
                 if (resultCode == Activity.RESULT_OK && data != null) {
                     data.data?.let { uri ->
+//                         
                         val bitmap = getBitmapFromUri(uri)
 //                        给全局变量赋值
-                        selectedBitmap = bitmap
+//                        selectedBitmap = bitmap
 //                        把上传的图片展示再页面
                         vb.petInfoImg.setImageBitmap(bitmap)
                     }

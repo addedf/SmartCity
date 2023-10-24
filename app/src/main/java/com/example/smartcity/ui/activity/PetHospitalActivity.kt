@@ -33,13 +33,11 @@ class PetHospitalActivity : AppCompatActivity() {
             if (it) {
                 loadType()
                 loadDoctorList()
-//                问诊列表
                 vb.petInquiryList.setOnClickListener {
-                    startActivity(Intent(this,PetMeInquiryActivity::class.java))
-                }
-//                问诊案例
-                vb.petMeInquiry.setOnClickListener {
                     startActivity(Intent(this,PetInquiryListActivity::class.java))
+                }
+                vb.petMeInquiry.setOnClickListener {
+                    startActivity(Intent(this,PetMeInquiryActivity::class.java))
                 }
             } else {
                 tool.snackbar(vb.root, "未登录", "去登录") {
@@ -96,6 +94,11 @@ class PetHospitalActivity : AppCompatActivity() {
                     binding.itemServiceName.text = data[position].name
                     Glide.with(context).load(getUrl(data[position].imgUrl))
                         .into(binding.itemServiceIcon)
+                    binding.root.setOnClickListener {
+                        val intent = Intent(context,CallDoctorActivity::class.java)
+                        intent.putExtra("typeId",data[position].id)
+                        startActivity(intent)
+                    }
                 }
                 vb.petType.layoutManager = GridLayoutManager(context, 5)
             }
