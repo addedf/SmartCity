@@ -18,19 +18,25 @@ import com.example.smartcity.databinding.ActivityPetHospitalnfoBinding
 import com.example.smartcity.g
 import com.example.smartcity.tool
 import com.example.smartcity.viewBinding
+import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
+import java.io.File
 import java.lang.Exception
 
 class PetHospitalnfoActivity : AppCompatActivity() {
     private val vb by viewBinding(ActivityPetHospitalnfoBinding::inflate)
     val TAG = "PetHospitalnfoActivity"
     private val fromAlbum = 2
-//    延迟定义全局变量
+
+    //    延迟定义全局变量
 //    private var selectedBitmap: Bitmap? = null
-    private lateinit var imgUrl :String
+    private lateinit var imgUrl: String
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,16 +69,6 @@ class PetHospitalnfoActivity : AppCompatActivity() {
         }
 //        点击提交
         vb.petInfoBtn.setOnClickListener {
-            // 将 Bitmap 转化为 Base64 字符串
-//            val imageUrls = selectedBitmap?.let { bitmap ->
-//                val byteArrayOutputStream = ByteArrayOutputStream()
-//                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
-//                val byteArray = byteArrayOutputStream.toByteArray()
-//                val base64String = Base64.encodeToString(byteArray, Base64.DEFAULT)
-//                base64String
-//            } ?: ""
-//            提交Bitmap
-//            TODO("/prod-api/common/upload先文件上传再拿到文件路径才上传")
             val data = """
                 {
                 "doctorId": $id,
@@ -82,7 +78,7 @@ class PetHospitalnfoActivity : AppCompatActivity() {
             """.trimIndent()
             val req = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/pet-hospital/inquiry","POST",req,true) { it ->
+                send("/prod-api/api/pet-hospital/inquiry", "POST", req, true) { it ->
                     if (it.contains("操作成功")) {
                         Toast.makeText(context, "操作成功", Toast.LENGTH_SHORT).show()
                         finish()
@@ -108,12 +104,41 @@ class PetHospitalnfoActivity : AppCompatActivity() {
             fromAlbum -> {
                 if (resultCode == Activity.RESULT_OK && data != null) {
                     data.data?.let { uri ->
-//                         
                         val bitmap = getBitmapFromUri(uri)
-//                        给全局变量赋值
-//                        selectedBitmap = bitmap
-//                        把上传的图片展示再页面
+                        //                        把上传的图片展示再页面
                         vb.petInfoImg.setImageBitmap(bitmap)
+                        tool.apply {
+                            Log.e(TAG, "onActivityResult: ${uri.path}")
+                            val file = File(uri.path)
+                            val req = MultipartBody.Builder()
+                                .setType(MultipartBody.FORM)
+                                .addFormDataPart(
+                                    "file",
+                                    "image.jpg",
+                                    RequestBody.create(
+                                        "multipart/form-data".toMediaTypeOrNull(),
+                                        file
+                                    )
+                                )
+                                .build()
+                            send("/prod-api/common/upload", "POST", req, true) {
+                                if (it.contains("操作成功")) {
+                                    val url = g.fromJson(it, UploadBean::class.java).url
+                                    imgUrl = url
+                                } else {
+                                    try {
+                                        Toast.makeText(
+                                            context,
+                                            JSONObject(it).getString("msg"),
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    } catch (_: Exception) {
+                                        Toast.makeText(context, "操作失败", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                            }
+                        }
+
                     }
                 }
             }
