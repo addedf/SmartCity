@@ -9,17 +9,16 @@
     tools:context=".ui.activity.LawyerActivity">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/lawyer_tb"
         app:navigationIcon="@drawable/ic_back"
         android:background="@color/purple_500">
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="法律咨询"
-            android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:textSize="18sp"/>
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/search_bg" />
     </androidx.appcompat.widget.Toolbar>
     <ScrollView
         android:layout_width="match_parent"
@@ -28,7 +27,43 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+            <androidx.viewpager2.widget.ViewPager2
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/law_Banner"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/law_service"
+                    android:layout_marginTop="@dimen/five"
+                    android:padding="@dimen/ten"/>
+            </RelativeLayout>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_me"
+                android:text="我的咨询"
+                app:iconSize="24dp"
+                android:textSize="16dp"
+                android:background="@drawable/search_btn"
+                android:id="@+id/lay_me_btn"
+                android:layout_marginHorizontal="16dp"
+                android:layout_gravity="center"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/five"
+                    android:id="@+id/law_hot_list"
+                    android:padding="@dimen/ten"/>
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

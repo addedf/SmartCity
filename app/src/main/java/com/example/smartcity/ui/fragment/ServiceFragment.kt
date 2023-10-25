@@ -51,7 +51,7 @@ class ServiceFragment : Fragment() {
                     binding.root.setOnClickListener {
                         when (modifiedServiceBean.rows[position].serviceName) {
                             "宠物医院" -> jump(PetHospitalActivity::class.java)
-                            "法律服务" -> jump(LawyerActivity::class.java)
+                            "法律咨询" -> jump(LawyerActivity::class.java)
                             "政府服务热线" -> jump(GovernmentActivity::class.java)
                             "垃圾分类" -> jump(RecActivity::class.java)
                             "活动管理" -> jump(EventsActivity::class.java)
