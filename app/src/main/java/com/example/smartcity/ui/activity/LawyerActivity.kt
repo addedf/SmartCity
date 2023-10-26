@@ -50,6 +50,11 @@ class LawyerActivity : AppCompatActivity() {
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                     )
+                    binding.root.setOnClickListener {
+                        val intent = Intent(context,LawyerInfoActivity::class.java)
+                        intent.putExtra("id",data[position].id)
+                        startActivity(intent)
+                    }
                     binding.itemLawyerBaseInfo.text = "介绍:${data[position].baseInfo}"
                     binding.itemLawyerName.text = data[position].name
                     binding.itemLawyerLegalExpertiseId.text = "从业时长:${data[position].legalExpertiseId}年"

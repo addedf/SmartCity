@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.LawyerInfoActivity"></activity>
+        <activity android:name=".ui.fragment.lawyer.ServiceModeActivity"></activity>
+        <activity android:name=".ui.activity.LawyerInfoActivity" />
         <activity android:name=".ui.activity.LawyerGoodActivity" />
         <activity android:name=".ui.activity.CallDoctorActivity" />
         <activity android:name=".ui.activity.PetInquiryInfoActivity" />

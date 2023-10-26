@@ -13,7 +13,7 @@ data class LawyerInfoBean(val data: Data) {
         val workStartAt : String,
         val serviceTimes : Int,
         val favorableRate : Int,
-        val legalExpertiseName : Int,
+        val legalExpertiseName : String,
         val favorableCount : Int
     )
 }
