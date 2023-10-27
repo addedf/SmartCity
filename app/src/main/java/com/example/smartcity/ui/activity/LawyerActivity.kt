@@ -32,6 +32,11 @@ class LawyerActivity : AppCompatActivity() {
                 loadBanner()
                 loadService()
                 loadHotLawyer()
+                vb.layMeBtn.setOnClickListener {
+                    tool.apply {
+                        jump(MeConsultActivity::class.java)
+                    }
+                }
             } else {
                 tool.snackbar(vb.root,"未登录","去登录") {
                     startActivity(Intent(this,LoginActivity::class.java))

@@ -1,5 +1,6 @@
 package com.example.smartcity.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -30,9 +31,14 @@ class LawyerGoodActivity : AppCompatActivity() {
 
                     }
                     binding.root.layoutParams = LinearLayout.LayoutParams(
-                        500,
+                        LinearLayout.LayoutParams.MATCH_PARENT,
                         250
                     )
+                    binding.root.setOnClickListener {
+                        val intent = Intent(context,LawyersExpertiseActivity::class.java)
+                        intent.putExtra("id",data[position].id)
+                        startActivity(intent)
+                    }
                     binding.itemGovName.text = data[position].name
                     Glide.with(context).load(getUrl(data[position].imgUrl)).into(binding.itemGovImg)
                 }

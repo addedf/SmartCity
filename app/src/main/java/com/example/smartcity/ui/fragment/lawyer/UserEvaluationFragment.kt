@@ -40,10 +40,8 @@ class UserEvaluationFragment : Fragment() {
     }
 
     private fun loadComment(id: Int?) {
-        Log.e(TAG, "$id")
         tool.apply {
             send("/prod-api/api/lawyer-consultation/lawyer/list-evaluate?lawyerId=${id}","GET",null,true) {
-                Log.e(TAG, "$it")
                 val data = g.fromJson(it,LawyerCommentBean::class.java).rows
                 vb.lwyUserList.adapter = GenericAdapter(data.size,
                     { ItemLawyerCommentBinding.inflate(layoutInflater) }) { binding,position ->
