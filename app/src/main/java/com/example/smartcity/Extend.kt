@@ -1,6 +1,7 @@
 package com.example.smartcity
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
 import android.content.res.Resources
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import com.google.gson.Gson
 
 //拓展属性给视图的Activity和Fragment添加 在使用tool的时候也会返回一个Tool和使用视图的上下文的回调
 val Activity.tool: Tool get() = Tool(this)
+val Dialog.tool: Tool get() = context?.let { Tool(it) }!!
 //let断言!!强制解包确保返回的Tool不为空 // 断言类似于使用前的校验判断传入的内容是否为空 为空则不去执行 不为空才执行 这样传入的内容空指针也不会崩溃
 val Fragment.tool: Tool get() = context?.let { Tool(it) }!!
 

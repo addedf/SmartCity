@@ -32,6 +32,11 @@ class LawyerActivity : AppCompatActivity() {
                 loadBanner()
                 loadService()
                 loadHotLawyer()
+                vb.layMeBtn.setOnClickListener {
+                    tool.apply {
+                        jump(MeConsultActivity::class.java)
+                    }
+                }
             } else {
                 tool.snackbar(vb.root,"未登录","去登录") {
                     startActivity(Intent(this,LoginActivity::class.java))
@@ -50,6 +55,11 @@ class LawyerActivity : AppCompatActivity() {
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                     )
+                    binding.root.setOnClickListener {
+                        val intent = Intent(context,LawyerInfoActivity::class.java)
+                        intent.putExtra("id",data[position].id)
+                        startActivity(intent)
+                    }
                     binding.itemLawyerBaseInfo.text = "介绍:${data[position].baseInfo}"
                     binding.itemLawyerName.text = data[position].name
                     binding.itemLawyerLegalExpertiseId.text = "从业时长:${data[position].legalExpertiseId}年"

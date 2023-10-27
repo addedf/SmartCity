@@ -1,5 +1,6 @@
 package com.example.smartcity.ui.activity
 
+
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
@@ -8,11 +9,10 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Base64
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.example.smartcity.R
 import com.example.smartcity.bean.UploadBean
 import com.example.smartcity.databinding.ActivityPetHospitalnfoBinding
 import com.example.smartcity.g
@@ -21,6 +21,7 @@ import com.example.smartcity.viewBinding
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.Request
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject

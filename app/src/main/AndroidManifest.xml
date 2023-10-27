@@ -18,7 +18,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.LawyerInfoActivity"></activity>
+        <activity android:name=".ui.activity.MeConsultInfoActivity"></activity>
+        <activity android:name=".ui.activity.EvaluateActivity" />
+        <activity android:name=".ui.activity.ConsultActivity" />
+        <activity android:name=".ui.activity.ConsultListActivity" />
+        <activity android:name=".ui.activity.MeConsultActivity" />
+        <activity android:name=".ui.activity.LawyersExpertiseActivity" />
+        <activity android:name=".ui.fragment.lawyer.ServiceModeActivity" />
+        <activity android:name=".ui.activity.LawyerInfoActivity" />
         <activity android:name=".ui.activity.LawyerGoodActivity" />
         <activity android:name=".ui.activity.CallDoctorActivity" />
         <activity android:name=".ui.activity.PetInquiryInfoActivity" />

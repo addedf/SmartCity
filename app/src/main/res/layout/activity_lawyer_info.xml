@@ -42,7 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="@dimen/five">
+                    android:layout_marginStart="@dimen/ten">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -72,6 +72,16 @@
                         android:textSize="14sp"
                         android:textColor="@color/light_gray"
                         android:id="@+id/lawyer_info_serviceTimes"
+                        android:maxLines="3"
+                        android:ellipsize="end"
+                        android:text="服务次数"
+                        android:layout_marginTop="@dimen/five"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/light_gray"
+                        android:id="@+id/lawyer_info_baseInfo"
                         android:maxLines="3"
                         android:ellipsize="end"
                         android:text="服务次数"
