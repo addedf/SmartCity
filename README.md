@@ -3,8 +3,7 @@
 2023年10月23日上传已完成代码  // 完成宠物医院功能
 
 临时token
-eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjRkNDIwNGE5LWZjOWUtNDI5NC05ZDhlLTljN2IxM2E0N2ViMiJ9.lozlNZkgbslBBWKUlOVW8KutVzM9vMPRgVcsaGEKJYg9jbxaca8e0dE5n_a6KZj6gFrvYzEYAJe66HVymV7KhA
-
+eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6Ijc2MWFhOGUzLTIwYTQtNDkxMS1iNjMxLTliMGI5NTg3MWRkMCJ9.DmFd61uXozlobxu01rDwPl3G4e3pULAUhGPru8yEPsIEY2jpZPqhuYqlvNgOXlgZh7nl82lKVH-K3emEqG0N7A
 
 开发注意事项 
 1.使用implementation fileTree(dir: 'libs', includes: ['*.aar', '*.jar'])加载所有包

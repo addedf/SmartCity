@@ -55,6 +55,7 @@ dependencies {
 //    加载所有arr jar包
     implementation fileTree(dir: 'libs', includes: ['*.aar', '*.jar'])
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.wear:wear:1.0.0'
 //    Material Design 布局依赖
 //    implementation 'com.google.android.material:material:1.1.0'
 //    implementation 'de.hdodenhof:circleimageview:3.0.1'
@@ -62,4 +63,5 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    compileOnly 'com.google.android.wearable:wearable:2.6.0'
 }

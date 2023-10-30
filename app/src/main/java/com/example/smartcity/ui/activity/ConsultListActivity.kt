@@ -3,6 +3,7 @@ package com.example.smartcity.ui.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,9 @@ import com.example.smartcity.bean.LawyerScreenBean
 import com.example.smartcity.databinding.ActivityConsultListBinding
 import com.example.smartcity.databinding.ItemHotLawyerListBinding
 import com.example.smartcity.dialog.ScreenDialog
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class ConsultListActivity : AppCompatActivity(), OnItemClickListener {
     private val vb by viewBinding(ActivityConsultListBinding::inflate)
@@ -21,7 +25,7 @@ class ConsultListActivity : AppCompatActivity(), OnItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(vb.root)
         vb.consultSort.setOnClickListener {
-            loadList(null,"favorableRate")
+            loadList(null, "favorableRate")
         }
         vb.consltBtn.setOnClickListener {
             tool.apply {
@@ -31,12 +35,14 @@ class ConsultListActivity : AppCompatActivity(), OnItemClickListener {
             }
 
         }
-        loadList(null,"workStartAt")
+        loadList(null, "workStartAt")
     }
+
     fun onDialogClick(value: Int) {
         // 处理从Dialog传回的值
-        loadList(value,"favorableRate")
+        loadList(value, "favorableRate")
     }
+
     private fun loadList(id: Int?, s: String) {
         val url = if (id != null) {
             "/prod-api/api/lawyer-consultation/lawyer/list?legalExpertiseId=$id&sort=$s"
@@ -44,7 +50,7 @@ class ConsultListActivity : AppCompatActivity(), OnItemClickListener {
             "/prod-api/api/lawyer-consultation/lawyer/list?sort=${s}"
         }
         tool.apply {
-            send(url ,"GET",null,true) {
+            send(url, "GET", null, true) {
                 val data = g.fromJson(it, LawyerScreenBean::class.java).rows
                 vb.consultList.adapter = GenericAdapter(data.size,
                     { ItemHotLawyerListBinding.inflate(layoutInflater) }) { binding, position ->
@@ -53,16 +59,19 @@ class ConsultListActivity : AppCompatActivity(), OnItemClickListener {
                         LinearLayout.LayoutParams.WRAP_CONTENT
                     )
                     binding.root.setOnClickListener {
-                        val intent = Intent(context,ConsultActivity::class.java)
-                        intent.putExtra("id",data[position].id)
-                        intent.putExtra("legalExpertiseId",data[position].legalExpertiseId)
+                        val intent = Intent(context, ConsultActivity::class.java)
+                        intent.putExtra("id", data[position].id)
+                        intent.putExtra("legalExpertiseId", data[position].legalExpertiseId)
                         startActivity(intent)
                     }
                     binding.itemLawyerBaseInfo.text = "介绍:${data[position].baseInfo}"
                     binding.itemLawyerName.text = data[position].name
-                    binding.itemLawyerLegalExpertiseId.text = "从业时长:${data[position].legalExpertiseId}年"
-                    binding.itemLawyerLegalExpertiseName.text = "法律专长:${data[position].legalExpertiseName}"
-                    Glide.with(context).load(getUrl(data[position].avatarUrl)).into(binding.itemLawyerAvatarUrl)
+                    binding.itemLawyerLegalExpertiseId.text =
+                        "从业时长:${data[position].legalExpertiseId}年"
+                    binding.itemLawyerLegalExpertiseName.text =
+                        "法律专长:${data[position].legalExpertiseName}"
+                    Glide.with(context).load(getUrl(data[position].avatarUrl))
+                        .into(binding.itemLawyerAvatarUrl)
                 }
                 vb.consultList.layoutManager = object : LinearLayoutManager(context) {
                     override fun canScrollVertically(): Boolean = false
@@ -70,8 +79,20 @@ class ConsultListActivity : AppCompatActivity(), OnItemClickListener {
             }
         }
     }
-//    重写方法处理点击传递回来的参数
+
+    //    重写方法处理点击传递回来的参数
     override fun onItemClick(id: Int) {
         onDialogClick(id)
     }
+
+    override fun onUserInfo(
+        name: String,
+        sex: String,
+        userId: String,
+        phone: String,
+        address: String
+    ) {
+
+    }
+
 }
