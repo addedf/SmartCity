@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="首页"
+        android:icon="@drawable/ic_retire_home"
+        android:id="@+id/retire_home"/>
+    <item android:title="健康咨询"
+        android:icon="@drawable/ic_news_retire"
+        android:id="@+id/retire_news"/>
+    <item android:title="健康检测"
+        android:icon="@drawable/ic_detection"
+        android:id="@+id/retire_detection"/>
+    <item android:title="我的"
+        android:icon="@drawable/ic_me"
+        android:id="@+id/retire_me"/>
+</menu>

@@ -34,22 +34,29 @@ class ServiceFragment : Fragment() {
             send("/prod-api/api/service/list", "GET", null, false) {
                 val bean = Gson().fromJson(it, ServiceBean::class.java)
 //                加载一段本地数据 使用和上面解析json一样的实体类
-                val localData = ServiceBean.Data(
+                val localLawyer = ServiceBean.Data(
                     imgUrl = "/prod-api/profile/upload/image/2023/02/13/dbc84fa3-05ef-476a-8268-422b09eb4866.png",
                     serviceName = "法律咨询",
+                    sort = 1,
+                    id = 0
+                )
+                val localRetire = ServiceBean.Data(
+                    imgUrl = "/prod-api/profile/upload/image/2021/05/10/31a6533c-bf60-4890-9a25-b18db764776a.png",
+                    serviceName = "智慧养老",
                     sort = 1,
                     id = 0
                 )
 //                数据类 copy方法
                 val modifiedServiceBean = bean.copy(
 //                    +号等同于plus 方法集合相加
-                    rows = bean.rows + localData
+                    rows = bean.rows + localLawyer + localRetire
                 )
                 val adapter = GenericAdapter(modifiedServiceBean.rows.size,
                     { ItemServiceBinding.inflate(layoutInflater) }) { binding, position ->
 //                    点击跳转服务界面 GarbageSortingActivity 内存泄露文件 垃圾分类重写
                     binding.root.setOnClickListener {
                         when (modifiedServiceBean.rows[position].serviceName) {
+                            "智慧养老" -> jump(RetireActivity::class.java)
                             "门诊预约" -> jump(HospitalActivity::class.java)
                             "宠物医院" -> jump(PetHospitalActivity::class.java)
                             "法律咨询" -> jump(LawyerActivity::class.java)
