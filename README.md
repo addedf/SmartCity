@@ -1,6 +1,8 @@
 2023年10月18日上传已完成代码  // 写到垃圾回收模块
 2023年10月20日上传已完成代码  // 完成政府热线功能
 2023年10月23日上传已完成代码  // 完成宠物医院功能
+2023年10月26日上传已完成代码  // 完成法律咨询功能
+2023年10月31日上传已完成代码  // 完成门诊预约功能
 
 临时token
 eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6Ijc2MWFhOGUzLTIwYTQtNDkxMS1iNjMxLTliMGI5NTg3MWRkMCJ9.DmFd61uXozlobxu01rDwPl3G4e3pULAUhGPru8yEPsIEY2jpZPqhuYqlvNgOXlgZh7nl82lKVH-K3emEqG0N7A

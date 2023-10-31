@@ -87,7 +87,7 @@ class RegInfoActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.reg_info_btn -> {
-
+                jump(RegListActivity::class.java)
             }
         }
         return true
