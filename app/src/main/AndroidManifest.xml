@@ -18,7 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.DetectionkInfoActivity"></activity>
+        <activity android:name=".ui.activity.BusAddActivity"></activity>
+        <activity android:name=".ui.activity.BusInfoActivity" />
+        <activity android:name=".ui.activity.SmartBusActivity" />
+        <activity android:name=".ui.activity.DetectionkInfoActivity" />
         <activity android:name=".ui.activity.RetireNewsInfoActivity" />
         <activity android:name=".ui.fragment.retire.RetierNewsInfoActivity" />
         <activity android:name=".ui.activity.RetireActivity" />
