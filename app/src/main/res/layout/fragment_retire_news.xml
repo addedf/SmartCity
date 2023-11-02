@@ -1,14 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/acquiesce"
+    android:orientation="vertical"
     tools:context=".ui.fragment.retire.RetireNewsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/retire_news_tb"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="50dp"
+        android:background="@color/purple_500"
+        app:navigationIcon="@drawable/ic_back">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="养老资讯"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/retire_news_1"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginTop="@dimen/five">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="探索 5G + 智能互联网"
+                    android:textSize="24sp"
+                    android:textColor="@color/gray"
+                    android:layout_marginRight="15dp"/>
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="67dp"
+                    android:src="@drawable/ic_retire_5"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/light_gray"
+                    android:text="1条评论 2023年11月1日"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/retire_news_2"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginTop="@dimen/five">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="探索 5G + 智能互联网"
+                    android:textSize="24sp"
+                    android:textColor="@color/gray"
+                    android:layout_marginRight="15dp"/>
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="67dp"
+                    android:src="@drawable/ic_retire_11"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/light_gray"
+                    android:text="1条评论 2023年11月1日"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/retire_news_3"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginTop="@dimen/five">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="探索 5G + 智能互联网"
+                    android:textSize="24sp"
+                    android:textColor="@color/gray"
+                    android:layout_marginRight="15dp"/>
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="67dp"
+                    android:src="@drawable/ic_retire_6"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/light_gray"
+                    android:text="1条评论 2023年11月1日"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/retire_news_4"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginTop="@dimen/five">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="探索 5G + 智能互联网"
+                    android:textSize="24sp"
+                    android:textColor="@color/gray"
+                    android:layout_marginRight="15dp"/>
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="67dp"
+                    android:src="@drawable/ic_retire_10"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/light_gray"
+                    android:text="1条评论 2023年11月1日"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/retire_news_6"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginTop="@dimen/five">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="探索 5G + 智能互联网"
+                    android:textSize="24sp"
+                    android:textColor="@color/gray"
+                    android:layout_marginRight="15dp"/>
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="67dp"
+                    android:src="@drawable/ic_retire_7"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/light_gray"
+                    android:text="1条评论 2023年11月1日"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/retire_news_7"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginTop="@dimen/five">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="探索 5G + 智能互联网"
+                    android:textSize="24sp"
+                    android:textColor="@color/gray"
+                    android:layout_marginRight="15dp"/>
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="67dp"
+                    android:src="@drawable/ic_retire_9"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/light_gray"
+                    android:text="1条评论 2023年11月1日"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/retire_news_8"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginTop="@dimen/five">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="探索 5G + 智能互联网"
+                    android:textSize="24sp"
+                    android:textColor="@color/gray"
+                    android:layout_marginRight="15dp"/>
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="67dp"
+                    android:src="@drawable/ic_retire_8"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/light_gray"
+                    android:text="1条评论 2023年11月1日"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/retire_news_9"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginTop="@dimen/five">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="探索 5G + 智能互联网"
+                    android:textSize="24sp"
+                    android:textColor="@color/gray"
+                    android:layout_marginRight="15dp"/>
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="67dp"
+                    android:src="@drawable/ic_retire_1"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/light_gray"
+                    android:text="1条评论 2023年11月1日"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
