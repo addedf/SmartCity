@@ -3,9 +3,11 @@
 2023年10月23日上传已完成代码  // 完成宠物医院功能
 2023年10月26日上传已完成代码  // 完成法律咨询功能
 2023年10月31日上传已完成代码  // 完成门诊预约功能
+2023年11月2日上传已完成代码  // 完成智慧养老功能
+2023年11月3日上传已完成代码  // 完成智慧巴士功能
 
 临时token
-eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6Ijc2MWFhOGUzLTIwYTQtNDkxMS1iNjMxLTliMGI5NTg3MWRkMCJ9.DmFd61uXozlobxu01rDwPl3G4e3pULAUhGPru8yEPsIEY2jpZPqhuYqlvNgOXlgZh7nl82lKVH-K3emEqG0N7A
+eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjI1MGFlNTIzLWZjMWItNDllYS1hZWZmLWI5NWI0YWIwOWQ3NCJ9.Wq3ZPRRTo2xJ50wamggc8RONULAedFqefh_jAlYshprdVG4_GnzdXQ9uta_IBkKJYdG9zoru6jN9H3XlEmYibg
 
 开发注意事项 
 1.使用implementation fileTree(dir: 'libs', includes: ['*.aar', '*.jar'])加载所有包

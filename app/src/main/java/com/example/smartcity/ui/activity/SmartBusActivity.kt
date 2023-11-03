@@ -22,6 +22,9 @@ class SmartBusActivity : AppCompatActivity() {
         vb.busAdd.setOnClickListener {
             jump(BusAddActivity::class.java)
         }
+        vb.busMe.setOnClickListener {
+            jump(BusMeActivity::class.java)
+        }
     }
 
     private fun loadList() {

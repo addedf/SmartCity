@@ -18,7 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.BusAddActivity"></activity>
+        <activity android:name=".ui.activity.DataAnalysisActivity"></activity>
+        <activity android:name=".ui.activity.BusPayActivity" />
+        <activity android:name=".ui.activity.BusMeActivity" />
+        <activity android:name=".ui.activity.BusAddActivity" />
         <activity android:name=".ui.activity.BusInfoActivity" />
         <activity android:name=".ui.activity.SmartBusActivity" />
         <activity android:name=".ui.activity.DetectionkInfoActivity" />
