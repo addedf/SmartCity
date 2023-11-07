@@ -18,13 +18,21 @@ class SmartBusActivity : AppCompatActivity() {
         vb.busTb.setOnClickListener {
             finish()
         }
-        loadList()
-        vb.busAdd.setOnClickListener {
-            jump(BusAddActivity::class.java)
-        }
-        vb.busMe.setOnClickListener {
-            jump(BusMeActivity::class.java)
-        }
+       tool.checkToken {
+           if (it) {
+               loadList()
+               vb.busAdd.setOnClickListener {
+                   jump(BusAddActivity::class.java)
+               }
+               vb.busMe.setOnClickListener {
+                   jump(BusMeActivity::class.java)
+               }
+           } else {
+               tool.snackbar(vb.root,"未登录","去登陆") {
+                   startActivity(Intent(this,LoginActivity::class.java))
+               }
+           }
+       }
     }
 
     private fun loadList() {

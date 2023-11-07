@@ -13,6 +13,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.smartcity.adapter.GenericAdapter
 import com.example.smartcity.bean.BannerBean
+import com.example.smartcity.bean.NewsList2Bean
 import com.example.smartcity.bean.NewsListBean
 import com.example.smartcity.bean.NewsTabBean
 import com.example.smartcity.databinding.FragmentNewsBinding
@@ -51,8 +52,13 @@ class NewsFragment : Fragment() {
                 }
                 vb.newsTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                     override fun onTabSelected(tab: TabLayout.Tab?) {
-                        if (tab != null) {
-                            loadList(data[tab.position].id)
+                        try {
+                            if (tab != null) {
+                                loadList(data[tab.position].id)
+                            }
+                        } catch (e: Exception) {
+                            Log.e(TAG, "${e.message}")
+                            e.printStackTrace()
                         }
                     }
 
@@ -66,8 +72,12 @@ class NewsFragment : Fragment() {
 
                 })
 //                默认加载
-                if (data.isNotEmpty()) {
-                    loadList(data[0].id)
+                try {
+                    if (data.isNotEmpty()) {
+                        loadList(data[0].id)
+                    }
+                } catch (e:Exception) {
+                    e.printStackTrace()
                 }
             }
         }
@@ -76,13 +86,13 @@ class NewsFragment : Fragment() {
     private fun loadList(id: Int) {
         tool.apply {
             send("/prod-api/press/press/list?type=$id","GET",null,false) {
-                val data = g.fromJson(it,NewsListBean::class.java).rows
+                val data = g.fromJson(it,NewsList2Bean::class.java).rows
                 val adapter = GenericAdapter(data.size,
                     { ItemNewsListBinding.inflate(layoutInflater) }) { binding,position ->
 //                    正则表达式
                     val reg = "<[^<]+?>|<p>|&nbsp;|</p>|<p>[\\\\s\\\\S]*?</p>|&nbsp;"
                     binding.newsItemTitle.text = data[position].title
-                    binding.newsItemDate.text = "发布时间:${data[position].createTime}"
+                    binding.newsItemDate.text = "发布时间:${data[position].publishDate}"
                     binding.newsItemCommit.text = "${data[position].commentNum}评论"
                     binding.newsItemContent.text = data[position].content.replace(Regex(reg),"")
                     try {

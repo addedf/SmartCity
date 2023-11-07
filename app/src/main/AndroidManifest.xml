@@ -18,7 +18,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.DataAnalysisActivity"></activity>
+        <activity android:name=".ui.activity.MetroAllActivity"></activity>
+        <activity android:name=".ui.activity.MetroInfoActivity" />
+        <activity android:name=".ui.activity.MetroAtlasActivity" />
+        <activity android:name=".ui.activity.MetroActivity" />
+        <activity android:name=".ui.activity.DataAnalysisActivity" />
         <activity android:name=".ui.activity.BusPayActivity" />
         <activity android:name=".ui.activity.BusMeActivity" />
         <activity android:name=".ui.activity.BusAddActivity" />
@@ -26,7 +30,6 @@
         <activity android:name=".ui.activity.SmartBusActivity" />
         <activity android:name=".ui.activity.DetectionkInfoActivity" />
         <activity android:name=".ui.activity.RetireNewsInfoActivity" />
-        <activity android:name=".ui.fragment.retire.RetierNewsInfoActivity" />
         <activity android:name=".ui.activity.RetireActivity" />
         <activity android:name=".ui.activity.RegAddUserActivity" />
         <activity android:name=".ui.activity.RegAddlistActivity" />

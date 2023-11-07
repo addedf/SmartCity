@@ -52,6 +52,7 @@ dependencies {
 //    implementation files('libs\\banner-2.1.0.aar')
 //    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 //    implementation files('libs\\disklrucache-4.10.0.jar')
+    implementation files('libs\\MPAndroidChart-v3.1.0.aar')
 //    加载所有arr jar包
     implementation fileTree(dir: 'libs', includes: ['*.aar', '*.jar'])
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'

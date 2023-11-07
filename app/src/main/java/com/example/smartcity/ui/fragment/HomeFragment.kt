@@ -143,9 +143,13 @@ class HomeFragment : Fragment() {
 //                监视标题栏点击
                 vb.homeTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                     override fun onTabSelected(tab: TabLayout.Tab?) {
-                        if (tab != null) {
-//                            点击传入id
-                            loadList(data[tab.position].id)
+                        try {
+                            if (tab != null) {
+                                loadList(data[tab.position].id)
+                            }
+                        } catch (e: Exception) {
+                            Log.e(TAG, "${e.message}")
+                            e.printStackTrace()
                         }
                     }
 
@@ -157,8 +161,12 @@ class HomeFragment : Fragment() {
 
                 })
 //                判断传递的集合不为空
-                if (data.isNotEmpty()) {
-                    loadList(data[0].id)
+                try {
+                    if (data.isNotEmpty()) {
+                        loadList(data[0].id)
+                    }
+                } catch (e:Exception) {
+                    e.printStackTrace()
                 }
             }
         }
@@ -169,14 +177,14 @@ class HomeFragment : Fragment() {
     private fun loadList(id: Int) {
         tool.apply {
             send("/prod-api/press/press/list?type=$id", "GET", null, false) {
-                val data = Gson().fromJson(it, NewsListBean::class.java).rows
+                val data = Gson().fromJson(it, NewsList2Bean::class.java).rows
                 val adapter = GenericAdapter(
                     data.size,
                     { ItemNewsListBinding.inflate(layoutInflater) }) { binding, position ->
 //                        正则表达式 匹配html标签删除
                     val reg = "<[^<]+?>|<p>|&nbsp;|</p>|<p>[\\\\s\\\\S]*?</p>|&nbsp;"
                     binding.newsItemTitle.text = data[position].title
-                    binding.newsItemDate.text = "发布时间:${data[position].createTime}"
+                    binding.newsItemDate.text = "发布时间:${data[position].publishDate}"
                     binding.newsItemCommit.text = "${data[position].commentNum}评论"
 //                    replace替换字符串方法第一个参数放需要匹配的参数用空字符串代替
                     binding.newsItemContent.text =

@@ -56,6 +56,7 @@ class ServiceFragment : Fragment() {
 //                    点击跳转服务界面 GarbageSortingActivity 内存泄露文件 垃圾分类重写
                     binding.root.setOnClickListener {
                         when (modifiedServiceBean.rows[position].serviceName) {
+                            "城市地铁" -> jump(MetroActivity::class.java)
                             "数据分析" -> jump(DataAnalysisActivity::class.java)
                             "智慧巴士" -> jump(SmartBusActivity::class.java)
                             "智慧养老" -> jump(RetireActivity::class.java)

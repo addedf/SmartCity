@@ -7,7 +7,7 @@
 2023年11月3日上传已完成代码  // 完成智慧巴士功能
 
 临时token
-eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjI1MGFlNTIzLWZjMWItNDllYS1hZWZmLWI5NWI0YWIwOWQ3NCJ9.Wq3ZPRRTo2xJ50wamggc8RONULAedFqefh_jAlYshprdVG4_GnzdXQ9uta_IBkKJYdG9zoru6jN9H3XlEmYibg
+eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImE5ZjcxODczLWU2MGEtNDQzMS05YTNjLWMzZTU5ZWFhODZlMiJ9.1gqnm1-Yc0Vvtt4LFfCtuHKBhz2dCoOwGLbT2SPQ7F8xkQFm14b-QlLxwrelCTqyT_bLR9HhKIwOsnukwjxc0Q
 
 开发注意事项 
 1.使用implementation fileTree(dir: 'libs', includes: ['*.aar', '*.jar'])加载所有包
