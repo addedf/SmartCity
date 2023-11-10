@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="机构主页"
+            android:text="预约检车"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_gravity="center"/>
@@ -54,8 +54,24 @@
                     app:iconSize="24dp"
                     app:icon="@drawable/ic_car_guanli"
                     android:id="@+id/insCar_manage"
-                    android:text="立即预约"/>
+                    android:text="车辆管理"/>
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的预约"
+                android:textSize="16dp"
+                android:padding="16dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/insCar_list"
+                    android:padding="16dp"/>
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

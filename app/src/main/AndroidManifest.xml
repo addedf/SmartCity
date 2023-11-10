@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.InspectCarActivity"></activity>
+        <activity android:name=".ui.activity.CarOrderActivity"></activity>
+        <activity android:name=".ui.activity.CarManageActivity" />
+        <activity android:name=".ui.activity.InspectCarActivity" />
         <activity android:name=".ui.activity.MetroAllActivity" />
         <activity android:name=".ui.activity.MetroInfoActivity" />
         <activity android:name=".ui.activity.MetroAtlasActivity" />

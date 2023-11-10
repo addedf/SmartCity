@@ -1,14 +1,12 @@
 package com.example.smartcity.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.smartcity.R
+import com.example.smartcity.*
 import com.example.smartcity.bean.BannerBean
 import com.example.smartcity.databinding.ActivityInspectCarBinding
 import com.example.smartcity.dialog.InspectCarDialog
-import com.example.smartcity.g
-import com.example.smartcity.tool
-import com.example.smartcity.viewBinding
 import com.youth.banner.Banner
 
 class InspectCarActivity : AppCompatActivity() {
@@ -20,7 +18,21 @@ class InspectCarActivity : AppCompatActivity() {
             finish()
         }
         InspectCarDialog(this).show()
-        loadBanner()
+        tool.checkToken {
+            if (it) {
+                loadBanner()
+                vb.insCarManage.setOnClickListener {
+                    jump(CarManageActivity::class.java)
+                }
+                vb.insCarOrder.setOnClickListener {
+                    jump(CarOrderActivity::class.java)
+                }
+            } else {
+                tool.snackbar(vb.root,"未登录","去登陆") {
+                    startActivity(Intent(this,LoginActivity::class.java))
+                }
+            }
+        }
     }
 
     private fun loadBanner() {
