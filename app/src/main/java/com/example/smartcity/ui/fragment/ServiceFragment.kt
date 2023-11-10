@@ -46,16 +46,23 @@ class ServiceFragment : Fragment() {
                     sort = 1,
                     id = 0
                 )
+                val InspectCar = ServiceBean.Data(
+                    imgUrl = "/prod-api/profile/upload/image/2021/05/10/aa69f9d0-9718-42f9-9f79-c07b82a48c41.png",
+                    serviceName = "预约检车",
+                    sort = 1,
+                    id = 0
+                )
 //                数据类 copy方法
                 val modifiedServiceBean = bean.copy(
 //                    +号等同于plus 方法集合相加
-                    rows = bean.rows + localLawyer + localRetire
+                    rows = bean.rows + localLawyer + localRetire + InspectCar
                 )
                 val adapter = GenericAdapter(modifiedServiceBean.rows.size,
                     { ItemServiceBinding.inflate(layoutInflater) }) { binding, position ->
 //                    点击跳转服务界面 GarbageSortingActivity 内存泄露文件 垃圾分类重写
                     binding.root.setOnClickListener {
                         when (modifiedServiceBean.rows[position].serviceName) {
+                            "预约检车" -> jump(InspectCarActivity::class.java)
                             "城市地铁" -> jump(MetroActivity::class.java)
                             "数据分析" -> jump(DataAnalysisActivity::class.java)
                             "智慧巴士" -> jump(SmartBusActivity::class.java)

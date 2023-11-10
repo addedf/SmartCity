@@ -7,7 +7,7 @@
 2023年11月3日上传已完成代码  // 完成智慧巴士功能
 
 临时token
-eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImE5ZjcxODczLWU2MGEtNDQzMS05YTNjLWMzZTU5ZWFhODZlMiJ9.1gqnm1-Yc0Vvtt4LFfCtuHKBhz2dCoOwGLbT2SPQ7F8xkQFm14b-QlLxwrelCTqyT_bLR9HhKIwOsnukwjxc0Q
+eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6Ijg2MjkyOWRlLTBkNzYtNDQ0NS1iNmU5LTJlZDFkZDczMWNhNiJ9.jpOboGdDxLeWXNqPeu3U9tjnn3fEguMqGiBHfddaU3eT-WtPg6Llo4Hw2p7_zbIoSDcINzHA37EE5QCaZbI1Lg
 
 开发注意事项 
 1.使用implementation fileTree(dir: 'libs', includes: ['*.aar', '*.jar'])加载所有包
@@ -15,5 +15,5 @@ eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImE5ZjcxODczLWU2MGEtNDQzMS05YTNjLWM
           viewBinding true
           dataBinding true
       }  绑定视图依赖
-3.可能因为虚拟机版本问题无法加载出webView 所有使用textView 加载新闻 vb.newsInfoText.text = Html.fromHtml(data.content)
+3.可能因为虚拟机版本问题无法加载出webView 所有使用textView 加载新闻 vb.newsInfoText.text = Html.fromHtml(String)
 
