@@ -95,4 +95,8 @@ class ConsultListActivity : AppCompatActivity(), OnItemClickListener {
 
     }
 
+    override fun onCarInfo(engineNo: String, plateNo: String, type: String) {
+        TODO("Not yet implemented")
+    }
+
 }
