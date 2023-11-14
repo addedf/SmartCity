@@ -46,7 +46,7 @@ class ExpressActivity : AppCompatActivity() {
 //        获取搜索文本数据
         // TODO("问老师如何点击软键盘搜索按钮搜索默认值 SearchView无法继承EditText方法使用回车确认搜索")
         vb.expressSearch.setOnSearchClickListener{
-//            Log.e(TAG, "${vb.expressSearch.queryHint.toString()}")
+            Log.e(TAG, "${vb.expressSearch.queryHint.toString()}")
         }
         vb.expressSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {

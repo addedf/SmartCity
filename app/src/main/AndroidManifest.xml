@@ -18,8 +18,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.ReservationControlActivity"></activity>
-        <activity android:name=".ui.activity.CarOrderActivity"></activity>
+        <activity android:name=".ui.activity.TakeOutShopInfoActivity"></activity>
+        <activity android:name=".ui.activity.TakeOutSearchInfoActivity" />
+        <activity android:name=".ui.activity.TakeOutActivity" />
+        <activity android:name=".ui.activity.ReservationControlActivity" />
+        <activity android:name=".ui.activity.CarOrderActivity" />
         <activity android:name=".ui.activity.CarManageActivity" />
         <activity android:name=".ui.activity.InspectCarActivity" />
         <activity android:name=".ui.activity.MetroAllActivity" />

@@ -35,8 +35,8 @@ class LoginActivity : AppCompatActivity() {
             val password = vb.loginPassword.text
             val data = """
                 {
-                "username":"$username",
-                "password":"$password"
+                "username":"Sakura",
+                "password":"${123456}"
                 }
                 """.trimIndent()
             Log.e(TAG, "$data")
