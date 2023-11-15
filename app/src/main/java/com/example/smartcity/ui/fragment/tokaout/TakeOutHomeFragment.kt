@@ -23,6 +23,7 @@ import com.example.smartcity.databinding.ItemTokaOutListBinding
 import com.example.smartcity.g
 import com.example.smartcity.tool
 import com.example.smartcity.ui.activity.LoginActivity
+import com.example.smartcity.ui.activity.TakeOutListActivity
 import com.example.smartcity.ui.activity.TakeOutSearchInfoActivity
 import com.example.smartcity.ui.activity.TakeOutShopInfoActivity
 import com.example.smartcity.viewBinding
@@ -98,6 +99,12 @@ class TakeOutHomeFragment : Fragment() {
                     { ItemServiceBinding.inflate(layoutInflater) }) { binding, position ->
                     binding.itemServiceName.text = data[position].themeName
                     Glide.with(context).load(getUrl(data[position].imgUrl)).into(binding.itemServiceIcon)
+                    binding.root.setOnClickListener {
+                        val intent = Intent(context, TakeOutListActivity::class.java)
+                        intent.putExtra("id",data[position].id)
+                        intent.putExtra("text",data[position].themeName)
+                        startActivity(intent)
+                    }
                 }
                 vb.takeOutType.layoutManager = GridLayoutManager(context,5)
             }

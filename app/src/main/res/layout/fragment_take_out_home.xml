@@ -53,6 +53,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_marginTop="@dimen/five"
                 android:id="@+id/take_out_banner"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:background="@color/white"
