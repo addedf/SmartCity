@@ -11,6 +11,7 @@ class GenericAdapter<T : ViewBinding>(
     private val bind: (T, Int) -> Unit
 ) : RecyclerView.Adapter<GenericAdapter.VH>() {
 
+
     //    接收绑定视图
     class VH(val binding: ViewBinding) : RecyclerView.ViewHolder(binding.root)
 

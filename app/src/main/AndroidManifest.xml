@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.TakeOrderingFoodActivity"></activity>
+        <activity android:name=".ui.activity.TakeOutClosActivity"></activity>
+        <activity android:name=".ui.activity.TakeOrderingFoodActivity" />
         <activity android:name=".ui.activity.TakeOutListActivity" />
         <activity android:name=".ui.activity.TakeOutShopInfoActivity" />
         <activity android:name=".ui.activity.TakeOutSearchInfoActivity" />

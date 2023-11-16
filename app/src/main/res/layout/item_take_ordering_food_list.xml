@@ -47,6 +47,38 @@
         android:layout_marginTop="@dimen/five"
         android:layout_toRightOf="@+id/item_take_ordering_food_imgUrl"
         android:layout_marginStart="@dimen/ten"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="@dimen/ten"
+        android:layout_below="@+id/item_take_ordering_food_favorRate"
+        android:layout_alignParentRight="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="—"
+            android:layout_margin="@dimen/five"
+            android:textSize="16sp"
+            android:textColor="@color/light_gray"
+            android:id="@+id/item_take_ordering_food_removr"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:inputType="number"
+            android:background="@null"
+            android:layout_marginTop="@dimen/five"
+            android:id="@+id/item_take_ordering_food_input"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:layout_margin="@dimen/five"
+            android:textSize="16sp"
+            android:textColor="@color/light_gray"
+            android:id="@+id/item_take_ordering_food_add"/>
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

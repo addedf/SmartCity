@@ -1,5 +1,6 @@
 package com.example.smartcity.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +19,7 @@ import com.example.smartcity.g
 import com.example.smartcity.tool
 import com.example.smartcity.viewBinding
 import com.google.android.material.tabs.TabLayout
+import java.text.DecimalFormat
 
 class TakeOrderingFoodActivity : AppCompatActivity() {
     private val vb by viewBinding(ActivityTakeOrderingFoodBinding::inflate)
@@ -100,6 +102,8 @@ class TakeOrderingFoodActivity : AppCompatActivity() {
     }
 
     private fun loadOrderingFood() {
+        var index = 0
+        val decimalFormat = DecimalFormat("#.##")  // 处理小数点精度
         tool.apply {
             send("/prod-api/api/takeout/product/list?sellerId=4&categoryId=5","GET",null,false) {
                 val data = g.fromJson(it, TakeOrderingFoodListBean::class.java).data
@@ -110,11 +114,23 @@ class TakeOrderingFoodActivity : AppCompatActivity() {
                     binding.itemTakeOrderingFoodPrice.text = "售价:" + data[position].price
                     binding.itemTakeOrderingFoodSaleQuantity.text = "月销售:" + data[position].saleQuantity
                     Glide.with(context).load(getUrl(data[position].imgUrl)).into(binding.itemTakeOrderingFoodImgUrl)
+                    binding.itemTakeOrderingFoodAdd.setOnClickListener{
+                        binding.itemTakeOrderingFoodInput.setText((++index).toString())
+                        vb.takeOrderingPic.text = decimalFormat.format(data[position].price * index).toString()
+                    }
+                    binding.itemTakeOrderingFoodRemovr.setOnClickListener{
+                        if (index>=1) {
+                            binding.itemTakeOrderingFoodInput.setText((--index).toString())
+                            vb.takeOrderingPic.text = decimalFormat.format(data[position].price * index).toString()
+                        }
+                    }
+                    vb.takeOutOrderSub.setOnClickListener {
+                        val intent = Intent(context,TakeOutClosActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
                 vb.takeOutOrderingFood.layoutManager = LinearLayoutManager(context)
             }
         }
     }
-
-
 }

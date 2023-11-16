@@ -4,6 +4,15 @@ import java.util.List;
 
 public class TakeOrderingFoodListBean {
 
+    @Override
+    public String toString() {
+        return "TakeOrderingFoodListBean{" +
+                "msg='" + msg + '\'' +
+                ", code=" + code +
+                ", data=" + data +
+                '}';
+    }
+
     /**
      * msg : 操作成功
      * code : 200
@@ -39,6 +48,7 @@ public class TakeOrderingFoodListBean {
     }
 
     public static class DataBean {
+
         /**
          * searchValue : null
          * createBy : null
@@ -76,6 +86,29 @@ public class TakeOrderingFoodListBean {
         private int saleQuantity;
         private double favorRate;
         private int sellerId;
+
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "searchValue=" + searchValue +
+                    ", createBy=" + createBy +
+                    ", createTime='" + createTime + '\'' +
+                    ", updateBy=" + updateBy +
+                    ", updateTime='" + updateTime + '\'' +
+                    ", remark=" + remark +
+                    ", params=" + params +
+                    ", id=" + id +
+                    ", categoryId=" + categoryId +
+                    ", imgUrl='" + imgUrl + '\'' +
+                    ", name='" + name + '\'' +
+                    ", price=" + price +
+                    ", detail='" + detail + '\'' +
+                    ", status='" + status + '\'' +
+                    ", saleQuantity=" + saleQuantity +
+                    ", favorRate=" + favorRate +
+                    ", sellerId=" + sellerId +
+                    '}';
+        }
 
         public Object getSearchValue() {
             return searchValue;
