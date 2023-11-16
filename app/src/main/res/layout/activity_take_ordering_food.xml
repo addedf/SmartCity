@@ -109,20 +109,19 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:id="@+id/take_out_commit">
-            <TextView
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="评论"/>
+                android:id="@+id/take_out_commit_list"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/take_out_diancan"
-            android:padding="16dp">
-            <TextView
-                android:layout_width="wrap_content"
+            android:id="@+id/take_out_diancan">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="点餐"/>
+                android:id="@+id/take_out_ordering_food"/>
         </RelativeLayout>
     </FrameLayout>
 </LinearLayout>

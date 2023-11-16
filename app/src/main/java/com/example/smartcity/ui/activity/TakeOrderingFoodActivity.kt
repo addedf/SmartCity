@@ -4,10 +4,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.smartcity.R
+import com.example.smartcity.adapter.GenericAdapter
+import com.example.smartcity.bean.TakeOrderingFoodListBean
+import com.example.smartcity.bean.TakeOrderingIngBean
 import com.example.smartcity.bean.TakeOutShopInfoBean
 import com.example.smartcity.databinding.ActivityTakeOrderingFoodBinding
+import com.example.smartcity.databinding.ItemEventsCommentBinding
+import com.example.smartcity.databinding.ItemTakeOrderingFoodListBinding
 import com.example.smartcity.g
 import com.example.smartcity.tool
 import com.example.smartcity.viewBinding
@@ -78,11 +84,36 @@ class TakeOrderingFoodActivity : AppCompatActivity() {
     }
 
     private fun loading() {
-        TODO("Not yet implemented")
+        tool.apply {
+            send("/prod-api/api/takeout/comment/list?sellerId=$id","GET",null,false) {
+                val data = g.fromJson(it, TakeOrderingIngBean::class.java).rows
+                vb.takeOutCommitList.adapter = GenericAdapter(data.size,
+                    { ItemEventsCommentBinding.inflate(layoutInflater) }) { binding, position ->
+                    Glide.with(context).load(getUrl(data[position].avatar)).into(binding.itemEvenCommentAvatar)
+                    binding.itemNewsCommentContent.text = data[position].content
+                    binding.itemNewsCommentCreateTime.text = data[position].commentDate
+                    binding.itemNewsCommentNickName.text = data[position].nickName
+                }
+                vb.takeOutCommitList.layoutManager = LinearLayoutManager(context)
+            }
+        }
     }
 
     private fun loadOrderingFood() {
-        TODO("Not yet implemented")
+        tool.apply {
+            send("/prod-api/api/takeout/product/list?sellerId=4&categoryId=5","GET",null,false) {
+                val data = g.fromJson(it, TakeOrderingFoodListBean::class.java).data
+                vb.takeOutOrderingFood.adapter = GenericAdapter(data.size,
+                    { ItemTakeOrderingFoodListBinding.inflate(layoutInflater) }) { binding,position->
+                    binding.itemTakeOrderingFoodName.text = data[position].name
+                    binding.itemTakeOrderingFoodFavorRate.text = "好评率:" + data[position].favorRate
+                    binding.itemTakeOrderingFoodPrice.text = "售价:" + data[position].price
+                    binding.itemTakeOrderingFoodSaleQuantity.text = "月销售:" + data[position].saleQuantity
+                    Glide.with(context).load(getUrl(data[position].imgUrl)).into(binding.itemTakeOrderingFoodImgUrl)
+                }
+                vb.takeOutOrderingFood.layoutManager = LinearLayoutManager(context)
+            }
+        }
     }
 
 
