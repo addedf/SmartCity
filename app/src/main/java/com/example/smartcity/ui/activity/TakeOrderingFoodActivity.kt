@@ -115,13 +115,15 @@ class TakeOrderingFoodActivity : AppCompatActivity() {
                     binding.itemTakeOrderingFoodSaleQuantity.text = "月销售:" + data[position].saleQuantity
                     Glide.with(context).load(getUrl(data[position].imgUrl)).into(binding.itemTakeOrderingFoodImgUrl)
                     binding.itemTakeOrderingFoodAdd.setOnClickListener{
-                        binding.itemTakeOrderingFoodInput.setText((++index).toString())
-                        vb.takeOrderingPic.text = decimalFormat.format(data[position].price * index).toString()
+                        binding.itemTakeOrderingFoodInput.setText((++data[position].index).toString())
+                        vb.takeOrderingPic.text = decimalFormat.format(data[position].price * data[position].index).toString()
                     }
                     binding.itemTakeOrderingFoodRemovr.setOnClickListener{
-                        if (index>=1) {
-                            binding.itemTakeOrderingFoodInput.setText((--index).toString())
-                            vb.takeOrderingPic.text = decimalFormat.format(data[position].price * index).toString()
+                        if (data[position].index>=1) {
+                            binding.itemTakeOrderingFoodInput.setText((--data[position].index).toString())
+                            vb.takeOrderingPic.text = decimalFormat.format(data[position].price * data[position].index).toString()
+                        } else if (data[position].index == 0) {
+                            vb.takeOrderingPic.text = decimalFormat.format(0 * data[position].index).toString()
                         }
                     }
                     vb.takeOutOrderSub.setOnClickListener {
