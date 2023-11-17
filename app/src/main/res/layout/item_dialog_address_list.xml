@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/ten">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_dialog_address_name"
+        android:textColor="@color/gray"
+        android:textSize="16sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_dialog_address_label"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/gray"
+        android:textSize="16sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_dialog_address_phone"
+        android:textColor="@color/light_gray"
+        android:layout_below="@+id/item_dialog_address_name"
+        android:layout_marginTop="@dimen/five"
+        android:textSize="14sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_dialog_address_addressDetail"
+        android:textColor="@color/light_gray"
+        android:layout_below="@+id/item_dialog_address_phone"
+        android:layout_marginTop="@dimen/five"
+        android:textSize="14sp"/>
+</RelativeLayout>

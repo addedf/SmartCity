@@ -100,7 +100,7 @@ class RegistrationActivity : AppCompatActivity() , OnItemClickListener {
     override fun onUserInfo(
         name: String,
         sex: String,
-        userId: String,
+        userId: String?,
         phone: String,
         address: String
     ) {

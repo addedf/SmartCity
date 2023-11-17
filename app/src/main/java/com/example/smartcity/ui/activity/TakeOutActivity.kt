@@ -38,7 +38,6 @@ class TakeOutActivity : AppCompatActivity() {
             val fragment = when(it.itemId) {
                 R.id.take_out_home -> TakeOutHomeFragment()
                 R.id.take_out_order -> TakeOutOderFragment()
-                R.id.take_out_me -> TakeOutMeFragment()
                 else -> TakeOutHomeFragment()
             }
             supportFragmentManager.beginTransaction().replace(R.id.take_out_frame,fragment).commit()

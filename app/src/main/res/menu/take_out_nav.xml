@@ -6,7 +6,4 @@
     <item android:title="订单"
         android:icon="@drawable/ic_retire_16"
         android:id="@+id/take_out_order"/>
-    <item android:title="我的"
-        android:icon="@drawable/ic_me"
-        android:id="@+id/take_out_me"/>
 </menu>

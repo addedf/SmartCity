@@ -71,12 +71,13 @@ class CarManageActivity : AppCompatActivity(),OnItemClickListener {
     override fun onUserInfo(
         name: String,
         sex: String,
-        userId: String,
+        userId: String?,
         phone: String,
         address: String
     ) {
         TODO("Not yet implemented")
     }
+
 
     override fun onCarInfo(engineNo: String, plateNo: String, type: String) {
         val data = """
