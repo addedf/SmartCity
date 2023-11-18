@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:backgroundTint="@color/acquiesce"
+    tools:context=".ui.activity.ShopReviewActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/shop_review_tb"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple_500"
+        app:navigationIcon="@drawable/ic_back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="评论"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </androidx.appcompat.widget.Toolbar>
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/eight"
+        android:stepSize="1.0"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="请输入评价"
+        android:gravity="center"
+        android:backgroundTint="@color/white"
+        android:background="@null"
+        android:layout_margin="16dp"
+        android:id="@+id/shop_review_inpnt"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:layout_margin="16sp"
+        android:layout_marginTop="60dp"
+        android:id="@+id/shop_review_btn"/>
+</LinearLayout>

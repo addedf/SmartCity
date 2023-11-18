@@ -12,6 +12,7 @@ import com.example.smartcity.databinding.ItemMetroAllBinding
 import com.example.smartcity.g
 import com.example.smartcity.tool
 import com.example.smartcity.viewBinding
+import java.util.*
 
 class MetroAllActivity : AppCompatActivity() {
     private val vb by viewBinding(ActivityMetroAllBinding::inflate)
@@ -26,8 +27,13 @@ class MetroAllActivity : AppCompatActivity() {
                 val data = g.fromJson(it,MetroAllBean::class.java).data
                 vb.metroAllList.adapter = GenericAdapter(data.size,
                     { ItemMetroAllBinding.inflate(layoutInflater) }) { binding,position->
-                    binding.itemMetroAllText.text = data[position].lineName
-//                    binding.itemMetroAllText.setTextColor(Color.rgb(64, 224, 208))
+                    val random = Random()
+                    val r = random.nextInt(256)
+                    val g = random.nextInt(256)
+                    val b = random.nextInt(256)
+                    binding.name.text = data[position].lineName
+                    binding.name.setTextColor(Color.rgb(r, g, b))
+                    binding.view.setBackgroundColor(Color.rgb(r, g, b))
                 }
                 vb.metroAllList.layoutManager = LinearLayoutManager(context)
             }

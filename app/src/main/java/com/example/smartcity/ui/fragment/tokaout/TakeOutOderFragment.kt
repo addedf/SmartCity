@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -19,7 +20,13 @@ import com.example.smartcity.databinding.FragmentTakeOutOderBinding
 import com.example.smartcity.databinding.ItemOrderAllListBinding
 import com.example.smartcity.databinding.ItemServiceBinding
 import com.example.smartcity.ui.activity.OrderAllInfoActivity
+import com.example.smartcity.ui.activity.ShopReviewActivity
+import com.example.smartcity.ui.activity.TakeOrderingFoodActivity
+import com.example.smartcity.ui.activity.TakePayActivity
 import com.google.android.material.tabs.TabLayout
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
 
 
 class TakeOutOderFragment : Fragment() {
@@ -46,15 +53,9 @@ class TakeOutOderFragment : Fragment() {
             vb.takeOutOrderTab.addTab(newTab)
         }
         vb.takeAllLay.visibility  = View.GONE
-        vb.takePayLay.visibility  = View.GONE
-        vb.takeRefundLay.visibility  = View.GONE
-        vb.takeEvaluateLay.visibility  = View.GONE
         vb.takeOutOrderTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 vb.takeAllLay.visibility  = View.GONE
-                vb.takePayLay.visibility  = View.GONE
-                vb.takeRefundLay.visibility  = View.GONE
-                vb.takeEvaluateLay.visibility  = View.GONE
                 if (tab != null) {
                     when(tab.position) {
                         0 -> loadAll("/prod-api/api/takeout/order/list")
@@ -91,13 +92,47 @@ class TakeOutOderFragment : Fragment() {
                     when(data.rows[position].orderInfo.status) {
                         "待支付" -> {
                             binding.itemOrderAllZhifu.visibility = View.VISIBLE
+                            binding.itemOrderAllZhifu.setOnClickListener {
+                                val intent = Intent(context, TakePayActivity::class.java)
+                                intent.putExtra("orderNo",data.rows[position].orderInfo.orderNo)
+                                intent.putExtra("total",data.rows[position].orderInfo.amount)
+                                startActivity(intent)
+                            }
                         }
                         "待评价" -> {
                             binding.itemOrderAllReview.visibility = View.VISIBLE
                             binding.itemOrderAllTuikuan.visibility = View.VISIBLE
+                            binding.itemOrderAllReview.setOnClickListener {
+                                val intent = Intent(context, ShopReviewActivity::class.java)
+                                intent.putExtra("orderNo",data.rows[position].orderInfo.orderNo)
+                                startActivity(intent)
+                            }
+                            binding.itemOrderAllTuikuan.setOnClickListener {
+                                val data = """
+                                    {
+                                    "orderNo": "${data.rows[position].orderInfo.orderNo}",
+                                    "reason": "好意思，不想要了"
+                                    }
+                                """.trimIndent()
+                                val req = data.toRequestBody("application/json".toMediaTypeOrNull())
+                                tool.apply {
+                                    send("/prod-api/api/takeout/order/refound","POST",req,true) {
+                                        if (it.contains("操作成功")) {
+                                            Toast.makeText(context,"退款成功",Toast.LENGTH_SHORT).show()
+                                        } else {
+                                            Toast.makeText(context,JSONObject(it).toString(),Toast.LENGTH_SHORT).show()
+                                        }
+                                    }
+                                }
+                            }
                         }
                         "完成" -> {
                             binding.itemOrderAllDoitagain.visibility = View.VISIBLE
+                            binding.itemOrderAllDoitagain.setOnClickListener {
+                                val intent = Intent(context, TakeOrderingFoodActivity::class.java)
+                                intent.putExtra("id",data.rows[position].sellerInfo.id)
+                                startActivity(intent)
+                            }
                         }
                     }
                     binding.root.setOnClickListener {
@@ -115,5 +150,13 @@ class TakeOutOderFragment : Fragment() {
                 vb.takeAllList.layoutManager = LinearLayoutManager(context)
             }
         }
+    }
+
+    override fun onResume() {
+        loadAll("/prod-api/api/takeout/order/list?status=${"待支付"}")
+        loadAll("/prod-api/api/takeout/order/list")
+        loadAll("/prod-api/api/takeout/order/list?status=${"待评价"}")
+        loadAll("/prod-api/api/takeout/order/list?status=${"退款"}")
+        super.onResume()
     }
 }
