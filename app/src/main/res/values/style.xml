@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SmallButton" parent="@android:style/Widget.Button">
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:padding">4dp</item>
+    </style>
+</resources>

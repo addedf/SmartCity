@@ -6,14 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.smartcity.*
 import com.example.smartcity.adapter.GenericAdapter
 import com.example.smartcity.bean.OrderAllBean
 import com.example.smartcity.databinding.FragmentTakeOutOderBinding
 import com.example.smartcity.databinding.ItemOrderAllListBinding
+import com.example.smartcity.databinding.ItemServiceBinding
 import com.google.android.material.tabs.TabLayout
 
 
@@ -25,7 +28,7 @@ class TakeOutOderFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         loadTab()
-        loadAll()
+        loadAll("/prod-api/api/takeout/order/list")
         return vb.root
     }
 
@@ -52,11 +55,11 @@ class TakeOutOderFragment : Fragment() {
                 vb.takeEvaluateLay.visibility  = View.GONE
                 if (tab != null) {
                     when(tab.position) {
-                        0 -> loadAll()
-                        1 -> loadPay()
-                        2 -> loadEvaluate()
-                        3 -> loadRefund()
-                        else -> loadAll()
+                        0 -> loadAll("/prod-api/api/takeout/order/list")
+                        1 -> loadAll("/prod-api/api/takeout/order/list?status=${data[tab.position]}")
+                        2 -> loadAll("/prod-api/api/takeout/order/list?status=${data[tab.position]}")
+                        3 -> loadAll("/prod-api/api/takeout/order/list?status=${data[tab.position]}")
+                        else -> loadAll("/prod-api/api/takeout/order/list")
                     }
                 }
             }
@@ -70,20 +73,19 @@ class TakeOutOderFragment : Fragment() {
         })
     }
 
-    private fun loadAll() {
+    private fun loadAll(url:String) {
         vb.takeAllLay.visibility  = View.VISIBLE
         tool.apply {
-            send("/prod-api/api/takeout/order/list","GET",null,true){
+            send(url,"GET",null,true){
                 val data = g.fromJson(it,OrderAllBean::class.java).rows
-//                Log.e(TAG, "loadAll: ${data.size}")
-//                val index = data.size
-//                Log.e(TAG, "loadAll: $index", )
-                vb.takeAllList.adapter = GenericAdapter(10,
+                vb.takeAllList.adapter = GenericAdapter(data.size,
                     { ItemOrderAllListBinding.inflate(layoutInflater) }) { binding,position->
+                    var emp = position
                     Glide.with(context).load(getUrl(data[position].sellerInfo.imgUrl)).transform(RoundedCorners(5.dp)).into(binding.itemOrderAllImgUrl)
                     binding.itemOrderAllName.text = data[position].sellerInfo.name
                     binding.itemOrderAllTotalPrice.text = "￥${data[position].orderInfo.orderItemList[0].totalPrice}"
                     binding.itemOrderAllQuantity.text = "X${data[position].orderInfo.orderItemList[0].quantity}"
+                    binding.itemOrderAllStatus.text = data[position].orderInfo.status
                     when(data[position].orderInfo.status) {
                         "待支付" -> {
                             binding.itemOrderAllZhifu.visibility = View.VISIBLE
@@ -96,6 +98,15 @@ class TakeOutOderFragment : Fragment() {
                             binding.itemOrderAllDoitagain.visibility = View.VISIBLE
                         }
                     }
+                    binding.root.setOnClickListener {
+
+                    }
+                    binding.itemOrderAllRec.adapter = GenericAdapter(data[position].orderInfo.orderItemList.size,
+                        { ItemServiceBinding.inflate(layoutInflater) }) { binding,position ->
+                        binding.itemServiceName.text = data[emp].orderInfo.orderItemList[position].productName
+                        Glide.with(context).load(getUrl(data[emp].orderInfo.orderItemList[position].productImage)).transform(CenterCrop(),RoundedCorners(5.dp)).into(binding.itemServiceIcon)
+                    }
+                    binding.itemOrderAllRec.layoutManager = GridLayoutManager(context,1,GridLayoutManager.HORIZONTAL,false)
                 }
                 vb.takeAllList.layoutManager = LinearLayoutManager(context)
             }

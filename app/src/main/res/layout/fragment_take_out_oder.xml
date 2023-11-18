@@ -39,6 +39,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/acquiesce"
                     android:id="@+id/take_all_lay"
                     android:descendantFocusability="blocksDescendants">
                     <androidx.recyclerview.widget.RecyclerView
