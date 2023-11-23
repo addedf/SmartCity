@@ -154,9 +154,9 @@ class TakeOutOderFragment : Fragment() {
 
     override fun onResume() {
         loadAll("/prod-api/api/takeout/order/list?status=${"待支付"}")
-        loadAll("/prod-api/api/takeout/order/list")
         loadAll("/prod-api/api/takeout/order/list?status=${"待评价"}")
         loadAll("/prod-api/api/takeout/order/list?status=${"退款"}")
+        loadAll("/prod-api/api/takeout/order/list")
         super.onResume()
     }
 }
