@@ -37,7 +37,7 @@ class AddCurriculumVitaeActivity : AppCompatActivity() {
             """.trimIndent()
             val body = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/job/resume", "POST", body, true) {
+                send("/prod-api/api/job/resume", "POST", data, true) {
                     if (it.contains("操作成功")) {
                         finish()
                     } else {

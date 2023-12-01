@@ -34,7 +34,7 @@ class EditCurriculumVitaeActivity : AppCompatActivity() {
             """.trimIndent()
             val body = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/job/resume", "PUT", body, true) {
+                send("/prod-api/api/job/resume", "PUT", data, true) {
                     if (it.contains("操作成功")) {
                         finish()
                     } else {

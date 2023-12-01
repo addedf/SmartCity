@@ -41,7 +41,7 @@ class BusAddActivity : AppCompatActivity() {
             Log.e(TAG, "onCreate: $data", )
             val req = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/bus/order","POST",req,true) {
+                send("/prod-api/api/bus/order","POST",data,true) {
                     val data = g.fromJson(it,BusAddOkBean::class.java)
                     if (it.contains("操作成功")) {
 //                        收起软键盘

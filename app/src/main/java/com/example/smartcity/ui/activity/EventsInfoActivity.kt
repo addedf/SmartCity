@@ -64,7 +64,7 @@ class EventsInfoActivity : AppCompatActivity() {
             """.trimIndent()
             val req = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/activity/signup", "POST", req, true) { it1 ->
+                send("/prod-api/api/activity/signup", "POST", data, true) { it1 ->
 //                                区分开两个不同的it 一个是本作用域的返回值，一个是上一个作用域的是否能报名的状态
                     if (it1.contains("操作成功")) {
                         Toast.makeText(context, "操作成功", Toast.LENGTH_SHORT).show()
@@ -96,7 +96,7 @@ class EventsInfoActivity : AppCompatActivity() {
             """.trimIndent()
             val req = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/activity/comment", "POST", req, true) {
+                send("/prod-api/api/activity/comment", "POST", data, true) {
                     if (it.contains("操作成功")) {
 //                        提交成功在加载一次评论
                         loadComment(imm)

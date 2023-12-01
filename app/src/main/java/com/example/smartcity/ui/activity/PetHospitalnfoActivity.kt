@@ -79,7 +79,7 @@ class PetHospitalnfoActivity : AppCompatActivity() {
             """.trimIndent()
             val req = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/pet-hospital/inquiry", "POST", req, true) { it ->
+                send("/prod-api/api/pet-hospital/inquiry", "POST", data, true) { it ->
                     if (it.contains("操作成功")) {
                         Toast.makeText(context, "操作成功", Toast.LENGTH_SHORT).show()
                         finish()
@@ -99,52 +99,52 @@ class PetHospitalnfoActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
-            fromAlbum -> {
-                if (resultCode == Activity.RESULT_OK && data != null) {
-                    data.data?.let { uri ->
-                        val bitmap = getBitmapFromUri(uri)
-                        //                        把上传的图片展示再页面
-                        vb.petInfoImg.setImageBitmap(bitmap)
-                        tool.apply {
-                            Log.e(TAG, "onActivityResult: ${uri.path}")
-                            val file = File(uri.path)
-                            val req = MultipartBody.Builder()
-                                .setType(MultipartBody.FORM)
-                                .addFormDataPart(
-                                    "file",
-                                    "image.jpg",
-                                    RequestBody.create(
-                                        "multipart/form-data".toMediaTypeOrNull(),
-                                        file
-                                    )
-                                )
-                                .build()
-                            send("/prod-api/common/upload", "POST", req, true) {
-                                if (it.contains("操作成功")) {
-                                    val url = g.fromJson(it, UploadBean::class.java).url
-                                    imgUrl = url
-                                } else {
-                                    try {
-                                        Toast.makeText(
-                                            context,
-                                            JSONObject(it).getString("msg"),
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    } catch (_: Exception) {
-                                        Toast.makeText(context, "操作失败", Toast.LENGTH_SHORT).show()
-                                    }
-                                }
-                            }
-                        }
-
-                    }
-                }
-            }
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        when (requestCode) {
+//            fromAlbum -> {
+//                if (resultCode == Activity.RESULT_OK && data != null) {
+//                    data.data?.let { uri ->
+//                        val bitmap = getBitmapFromUri(uri)
+//                        //                        把上传的图片展示再页面
+//                        vb.petInfoImg.setImageBitmap(bitmap)
+//                        tool.apply {
+//                            Log.e(TAG, "onActivityResult: ${uri.path}")
+//                            val file = File(uri.path)
+//                            val req = MultipartBody.Builder()
+//                                .setType(MultipartBody.FORM)
+//                                .addFormDataPart(
+//                                    "file",
+//                                    "image.jpg",
+//                                    RequestBody.create(
+//                                        "multipart/form-data".toMediaTypeOrNull(),
+//                                        file
+//                                    )
+//                                )
+//                                .build()
+//                            send("/prod-api/common/upload", "POST", data, true) {
+//                                if (it.contains("操作成功")) {
+//                                    val url = g.fromJson(it, UploadBean::class.java).url
+//                                    imgUrl = url
+//                                } else {
+//                                    try {
+//                                        Toast.makeText(
+//                                            context,
+//                                            JSONObject(it).getString("msg"),
+//                                            Toast.LENGTH_SHORT
+//                                        ).show()
+//                                    } catch (_: Exception) {
+//                                        Toast.makeText(context, "操作失败", Toast.LENGTH_SHORT).show()
+//                                    }
+//                                }
+//                            }
+//                        }
+//
+//                    }
+//                }
+//            }
+//        }
+//    }
 
     private fun getBitmapFromUri(uri: Uri) = contentResolver.openFileDescriptor(uri, "r")?.use {
         BitmapFactory.decodeFileDescriptor(it.fileDescriptor)

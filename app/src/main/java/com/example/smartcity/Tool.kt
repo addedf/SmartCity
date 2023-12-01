@@ -12,6 +12,8 @@ import com.example.smartcity.adapter.GenericAdapter
 import com.example.smartcity.databinding.BannerViewBinding
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.*
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import java.io.IOException
 import java.lang.Exception
@@ -53,17 +55,18 @@ class Tool(val context: Context) {
     fun send(
         url: String,
         method: String,
-        body: RequestBody?,
+        JSON: String?,
         auth: Boolean,
         then: (String) -> Unit
     ) {
         try {
+            val reqBody = JSON?.toRequestBody("application/json".toMediaTypeOrNull())
 //            发送请求
             val req = Request.Builder()
             req.url(getUrl(url))
 //            设置请求时间
 //            放入请求类型和请求体
-            req.method(method, body)
+            req.method(method, reqBody)
 //            为真就给请求添加token
             if (auth) {
                 req.addHeader("Authorization", "Bearer ${get("token")}")

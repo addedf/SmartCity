@@ -97,18 +97,24 @@ class VolunteerkFragment : Fragment() {
 //                            "newState": true
 //                        """.trimIndent()
 //                        val req = data.toRequestBody("application/json".toMediaTypeOrNull())
-                        val reqBody = RequestBody.create("application/json".toMediaTypeOrNull(),"""
+//                        val reqBody = RequestBody.create("application/json".toMediaTypeOrNull(),"""
+//                            {
+//                            "activityId": ${list[position].id},
+//                            "newState": true
+//                            }
+//                        """.trimIndent())
+                        val data = """
                             {
                             "activityId": ${list[position].id},
                             "newState": true
                             }
-                        """.trimIndent())
+                        """.trimIndent()
 //                        提交请求
                         tool.apply {
                             send(
                                 "/prod-api/api/volunteer-service/register",
                                 "POST",
-                                reqBody,
+                                data,
                                 true
                             ) { it1 ->
 //                                区分开两个不同的it 一个是本作用域的返回值，一个是上一个作用域的是否能报名的状态

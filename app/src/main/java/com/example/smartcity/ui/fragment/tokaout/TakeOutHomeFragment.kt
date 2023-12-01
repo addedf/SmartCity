@@ -35,6 +35,11 @@ class TakeOutHomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        initView()
+        return vb.root
+    }
+
+    private fun initView() {
         tool.checkToken {
             if (it) {
                 loadBanner()
@@ -59,8 +64,8 @@ class TakeOutHomeFragment : Fragment() {
                 }
             }
         }
-        return vb.root
     }
+
     private fun loadList() {
         tool.apply {
             send("/prod-api/api/takeout/seller/list","GET",null,false) {
@@ -122,6 +127,11 @@ class TakeOutHomeFragment : Fragment() {
                 setBanner(vb.takeOutBanner,list)
             }
         }
+    }
+
+    override fun onResume() {
+        initView()
+        super.onResume()
     }
 }
 

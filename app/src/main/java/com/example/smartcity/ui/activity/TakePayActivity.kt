@@ -31,7 +31,7 @@ class TakePayActivity : AppCompatActivity() {
         val req = data.toRequestBody("application/json".toMediaTypeOrNull())
         vb.takePayBtn.setOnClickListener {
             tool.apply {
-                send("/prod-api/api/takeout/pay","POST",req,true) {
+                send("/prod-api/api/takeout/pay","POST",data,true) {
                     if (it.contains("操作成功")) {
                         Toast.makeText(context,"支付成功",Toast.LENGTH_SHORT).show()
                     } else {

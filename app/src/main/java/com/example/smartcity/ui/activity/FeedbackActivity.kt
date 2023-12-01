@@ -41,7 +41,7 @@ class FeedbackActivity : AppCompatActivity() {
                 """.trimIndent()
                 val body = data.toRequestBody("application/json".toMediaTypeOrNull())
                 tool.apply {
-                    send("/prod-api/api/common/feedback", "POST", body, true) {
+                    send("/prod-api/api/common/feedback", "POST", data, true) {
                         val obj = JSONObject(it)
                         try {
                             Toast.makeText(context, obj.getString("msg"), Toast.LENGTH_SHORT).show()

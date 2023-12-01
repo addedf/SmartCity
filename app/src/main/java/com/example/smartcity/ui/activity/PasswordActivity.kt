@@ -30,7 +30,7 @@ class PasswordActivity : AppCompatActivity() {
             """.trimIndent()
             val body = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/common/user/resetPwd","PUT",body,true) {
+                send("/prod-api/api/common/user/resetPwd","PUT",data,true) {
                     val obj = JSONObject(it)
                     if (obj.getString("msg") == "操作成功") {
                         Toast.makeText(context,"操作成功", Toast.LENGTH_SHORT).show()

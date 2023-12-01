@@ -38,7 +38,7 @@ class ConsultActivity : AppCompatActivity() {
             """.trimIndent()
             val req = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/lawyer-consultation/legal-advice","POST",req,true) {
+                send("/prod-api/api/lawyer-consultation/legal-advice","POST",data,true) {
                     if (it.contains("操作成功")) {
                         Toast.makeText(context,"提交成功",Toast.LENGTH_SHORT).show()
                     } else {

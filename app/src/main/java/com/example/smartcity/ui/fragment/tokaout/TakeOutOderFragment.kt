@@ -116,7 +116,7 @@ class TakeOutOderFragment : Fragment() {
                                 """.trimIndent()
                                 val req = data.toRequestBody("application/json".toMediaTypeOrNull())
                                 tool.apply {
-                                    send("/prod-api/api/takeout/order/refound","POST",req,true) {
+                                    send("/prod-api/api/takeout/order/refound","POST",data,true) {
                                         if (it.contains("操作成功")) {
                                             Toast.makeText(context,"退款成功",Toast.LENGTH_SHORT).show()
                                         } else {

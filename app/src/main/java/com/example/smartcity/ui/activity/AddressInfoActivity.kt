@@ -30,7 +30,7 @@ class AddressInfoActivity : AppCompatActivity() {
                 }
             """.trimIndent()
                 val req = data.toRequestBody("application/json".toMediaTypeOrNull())
-                send("/prod-api/api/takeout/address","POST",req,true) {
+                send("/prod-api/api/takeout/address","POST",data,true) {
                     if (it.contains("操作成功")) {
                         Toast.makeText(this@AddressInfoActivity,"添加成功",Toast.LENGTH_SHORT).show()
                         finish()

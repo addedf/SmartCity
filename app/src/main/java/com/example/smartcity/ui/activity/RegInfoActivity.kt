@@ -57,7 +57,7 @@ class RegInfoActivity : AppCompatActivity() {
             val formattedDate = currentDateTime.format(formatter)
             val data = """
             {
-            "id": $id,
+           "id": $id,
             "address": "${vb.RegInfoAddress.text}",
             "birthday": "$formattedDate",
             "cardId": "${vb.RegInfoCardId.text}",
@@ -68,7 +68,7 @@ class RegInfoActivity : AppCompatActivity() {
         """.trimIndent()
             val req = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/hospital/patient","PUT",req,true) {
+                send("/prod-api/api/hospital/patient","PUT",data,true) {
                     if (it.contains("操作成功")) {
                         Toast.makeText(context,"修改成功", Toast.LENGTH_SHORT).show()
                     } else {

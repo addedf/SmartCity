@@ -77,7 +77,7 @@ class TakeOutClosActivity : AppCompatActivity(), OnItemClickListener {
                 }
             """.trimIndent()
                         val req = data.toRequestBody("application/json".toMediaTypeOrNull())
-                        send("/prod-api/api/takeout/order/create","POST",req,true) {
+                        send("/prod-api/api/takeout/order/create","POST",data,true) {
                             if (it.contains("操作成功")) {
                                 val data = g.fromJson(it,PayBean::class.java).orderNo
                                 val intent = Intent(context,TakePayActivity::class.java)

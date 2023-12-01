@@ -60,7 +60,7 @@ class RecNewsActivity : AppCompatActivity() {
             """.trimIndent()
             val req = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/garbage-classification/news-comment","POST",req,true) {
+                send("/prod-api/api/garbage-classification/news-comment","POST",data,true) {
                     if (it.contains("操作成功")) {
                         loadComment(id)
                         imm.hideSoftInputFromWindow(vb.recNewsCommit.windowToken, 0)

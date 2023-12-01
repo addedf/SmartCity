@@ -89,7 +89,7 @@ class CarManageActivity : AppCompatActivity(),OnItemClickListener {
         """.trimIndent()
         val req = data.toRequestBody("application/json".toMediaTypeOrNull())
         tool.apply {
-            send("/prod-api/api/traffic/car","POST",req,true) {
+            send("/prod-api/api/traffic/car","POST",data,true) {
                 if (it.contains("操作成功")){
                     loadCarList()
                 } else {

@@ -41,10 +41,9 @@ class LoginActivity : AppCompatActivity() {
                 """.trimIndent()
             Log.e(TAG, "$data")
 //            toRequestBody 是一个 OkHttp 提供的扩展函数，它接收一个媒体类型作为参数，并将当前对象转换为对应的请求体。在这种情况下，data 对象必须是一个字符串或字节数组 然后指定发送的数据类型
-            val req = data.toRequestBody("application/json".toMediaTypeOrNull())
-
+//            val req = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/login","POST",req,false) {
+                send("/prod-api/api/login","POST",data,false) {
 //                    把it登录成功返回数据转换成json JSONObject可以输入字段返回值 也可以以键值对的形式添加数据
                     val obj = JSONObject(it)
 //                    判断字符串是返回操作成功

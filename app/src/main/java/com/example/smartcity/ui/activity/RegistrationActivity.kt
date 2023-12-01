@@ -65,9 +65,16 @@ class RegistrationActivity : AppCompatActivity() , OnItemClickListener {
                     } catch (e:Exception) {
                         Log.e(TAG, "${e.message}")
                     }
-                    binding.itemRegSex.text = when(data[position].sex) {
-                        "0" -> "性别:男"
-                        else -> "性别:女"
+                    try {
+                        binding.itemRegSex.text = when(data[position].sex) {
+                            "0" -> "性别:男"
+                            "男" -> "性别:男"
+                            "女" -> "性别:女"
+                            "1" -> "性别:女"
+                            else -> "性别:女"
+                        }
+                    } catch (e:Exception) {
+                        Log.e(TAG, "loadList: ${e.message}")
                     }
                 }
                 vb.regList.layoutManager = object : LinearLayoutManager(context) {
@@ -120,7 +127,7 @@ class RegistrationActivity : AppCompatActivity() , OnItemClickListener {
         """.trimIndent()
         val req = data.toRequestBody("application/json".toMediaTypeOrNull())
         tool.apply {
-            send("/prod-api/api/hospital/patient","POST",req,true) {
+            send("/prod-api/api/hospital/patient","POST",data,true) {
                 if (it.contains("操作成功")) {
                     loadList()
                     Toast.makeText(context,"添加成功",Toast.LENGTH_SHORT).show()

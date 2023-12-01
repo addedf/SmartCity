@@ -32,7 +32,7 @@ class ShopReviewActivity : AppCompatActivity() {
         """.trimIndent()
             val req = data.toRequestBody("application/json".toMediaTypeOrNull())
             tool.apply {
-                send("/prod-api/api/takeout/comment","POST",req,true) {
+                send("/prod-api/api/takeout/comment","POST",data,true) {
                     if (it.contains("操作成功")) {
                         Toast.makeText(context,"评论成功",Toast.LENGTH_SHORT).show()
                         finish()

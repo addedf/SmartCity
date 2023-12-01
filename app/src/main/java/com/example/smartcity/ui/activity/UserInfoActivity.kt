@@ -54,7 +54,7 @@ class UserInfoActivity : AppCompatActivity() {
                         }
                     """.trimIndent()
                     val body = data.toRequestBody("application/json".toMediaTypeOrNull())
-                    send("/prod-api/api/common/user","PUT",body,true) { it ->
+                    send("/prod-api/api/common/user","PUT",data,true) { it ->
                         if(it.contains("操作成功")){
                             finish()
                         }else{
