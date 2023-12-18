@@ -119,18 +119,24 @@
             android:layout_height="wrap_content"
             android:id="@+id/take_out_diancan">
             <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/order_takeout_text_dishes"/>
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/five"
+                android:layout_toRightOf="@+id/order_takeout_text_dishes"
                 android:id="@+id/take_out_ordering_food"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_margin="20dp"
                 android:layout_height="40dp"
+                android:layout_marginStart="@dimen/five"
                 android:orientation="horizontal"
                 android:id="@+id/take_outOrder_sub"
                 android:background="@drawable/ic_radius"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="10dp">
+                android:layout_alignParentBottom="true">
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"

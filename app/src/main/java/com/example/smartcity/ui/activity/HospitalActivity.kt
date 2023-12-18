@@ -50,7 +50,8 @@ class HospitalActivity : AppCompatActivity() {
                         startActivity(intent)
                     }
                     try {
-                        Glide.with(context).load(getUrl(data[position].imgUrl)).error(getDrawable(R.drawable.chengshi))
+                        Glide.with(context).load(getUrl(data[position].imgUrl))
+                            .error(R.drawable.chengshi)
                             .transform(CenterCrop(),RoundedCorners(5.dp))
                             .into(binding.itemHospitalImgUrl)
                     } catch (e:Exception) {

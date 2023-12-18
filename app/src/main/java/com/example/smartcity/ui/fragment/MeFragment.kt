@@ -72,7 +72,7 @@ class MeFragment : Fragment() {
                 } else {
 //                没有登录
                     meName.text = "未登录"
-                    meAvatar.setImageResource(R.drawable.ic_avatar)
+                        meAvatar.setImageResource(R.drawable.ic_avatar)
 //                    遍历meList功能模块 添加点击事件
                     for (i in 0 until meList.childCount) {
                         val view = meList.getChildAt(i)
